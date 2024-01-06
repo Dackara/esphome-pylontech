@@ -16,6 +16,10 @@ void PylontechTextSensor::dump_config() {
   LOG_TEXT_SENSOR("  ", "Voltage state", this->voltage_state_text_sensor_);
   LOG_TEXT_SENSOR("  ", "Current state", this->current_state_text_sensor_);
   LOG_TEXT_SENSOR("  ", "Temperature state", this->temperature_state_text_sensor_);
+  LOG_TEXT_SENSOR("  ", "Date state", this->date_state_text_sensor_);
+  LOG_TEXT_SENSOR("  ", "Time state", this->time_state_text_sensor_);
+  LOG_TEXT_SENSOR("  ", "B.V. state", this->bv_state_text_sensor_);
+  LOG_TEXT_SENSOR("  ", "B.T. state", this->bt_state_text_sensor_);
   LOG_TEXT_SENSOR("  ", "MOS state", this->mos_state_text_sensor_);
 }
 
@@ -34,6 +38,18 @@ void PylontechTextSensor::on_line_read(PylontechListener::LineContents *line) {
   }
   if (this->temperature_state_text_sensor_ != nullptr) {
     this->temperature_state_text_sensor_->publish_state(std::string(line->temp_st));
+  }
+  if (this->date_state_text_sensor_ != nullptr) {
+    this->date_state_text_sensor_->publish_state(std::string(line->date));
+  }
+  if (this->time_state_text_sensor_ != nullptr) {
+    this->time_state_text_sensor_->publish_state(std::string(line->time));
+  }
+  if (this->bv_state_text_sensor_ != nullptr) {
+    this->bv_state_text_sensor_->publish_state(std::string(line->bv_st));
+  }
+  if (this->bt_state_text_sensor_ != nullptr) {
+    this->bt_state_text_sensor_->publish_state(std::string(line->bt_st));
   }
   if (this->mos_state_text_sensor_ != nullptr) {
     this->mos_state_text_sensor_->publish_state(std::string(line->mos_st));

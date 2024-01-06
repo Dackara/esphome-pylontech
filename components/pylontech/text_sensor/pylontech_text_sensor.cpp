@@ -16,6 +16,7 @@ void PylontechTextSensor::dump_config() {
   LOG_TEXT_SENSOR("  ", "Voltage state", this->voltage_state_text_sensor_);
   LOG_TEXT_SENSOR("  ", "Current state", this->current_state_text_sensor_);
   LOG_TEXT_SENSOR("  ", "Temperature state", this->temperature_state_text_sensor_);
+  LOG_TEXT_SENSOR("  ", "MOS state", this->mos_state_text_sensor_);
 }
 
 void PylontechTextSensor::on_line_read(PylontechListener::LineContents *line) {
@@ -33,6 +34,9 @@ void PylontechTextSensor::on_line_read(PylontechListener::LineContents *line) {
   }
   if (this->temperature_state_text_sensor_ != nullptr) {
     this->temperature_state_text_sensor_->publish_state(std::string(line->temp_st));
+  }
+  if (this->mos_state_text_sensor_ != nullptr) {
+    this->mos_state_text_sensor_->publish_state(std::string(line->mos_st));
   }
 }
 

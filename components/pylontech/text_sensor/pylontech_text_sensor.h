@@ -15,6 +15,7 @@ class PylontechTextSensor : public PylontechListener, public Component {
   SUB_TEXT_SENSOR(voltage_state)
   SUB_TEXT_SENSOR(current_state)
   SUB_TEXT_SENSOR(temperature_state)
+  SUB_TEXT_SENSOR(mos_state)
 
   void on_line_read(LineContents *line) override;
 

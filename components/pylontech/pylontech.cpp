@@ -61,15 +61,17 @@ void PylontechComponent::process_line_(std::string &buffer) {
   ESP_LOGV(TAG, "Read from serial: %s", buffer.substr(0, buffer.size() - 2).c_str());
   // clang-format off
   // example line to parse:
-  // Power Volt  Curr Tempr Tlow  Thigh  Vlow Vhigh Base.St Volt.St Curr.St Temp.St Coulomb Time                B.V.St B.T.St MosTempr M.T.St
-  // 1    50548  8910 25000 24200 25000  3368 3371  Charge  Normal  Normal  Normal  97%     2021-06-30 20:49:45 Normal Normal 22700    Normal
+  // Power       Volt     Curr     Tempr     Tlow     Thigh     Vlow     Vhigh     Base.St    Volt.St    Curr.St    Temp.St    Coulomb      Time                        B.V.St B.T.St MosTempr    M.T.St
+  // %d          %d       %d       %d        %d       %d        %d       %d        %7s        %7s        %7s        %7s        %d           %% %*d-%*d-%*d %*d:%*d:%*d  %*s    %*s    %d          %*s
+  // 1           50548    8910     25000     24200    25000     3368     3371      Charge     Normal     Normal     Normal     97%          2021-06-30 20:49:45         Normal Normal 22700       Normal
+  // &l.bat_num, &l.volt, &l.curr, &l.tempr, &l.tlow, &l.thigh, &l.vlow, &l.vhigh, l.base_st, l.volt_st, l.curr_st, l.temp_st, &l.capacity,                                           &l.mostempr
   // clang-format on
 
   PylontechListener::LineContents l{};
   const int parsed = sscanf(                                                                                  // NOLINT
       buffer.c_str(), "%d %d %d %d %d %d %d %d %7s %7s %7s %7s %d%% %*d-%*d-%*d %*d:%*d:%*d %*s %*s %d %*s",  // NOLINT
       &l.bat_num, &l.volt, &l.curr, &l.tempr, &l.tlow, &l.thigh, &l.vlow, &l.vhigh, l.base_st, l.volt_st,     // NOLINT
-      l.curr_st, l.temp_st, &l.capacity, &l.mostempr);                                                         // NOLINT
+      l.curr_st, l.temp_st, &l.capacity, &l.mostempr, &l.mos_st);                                             // NOLINT
 
   if (l.bat_num <= 0) {
     ESP_LOGD(TAG, "invalid bat_num in line %s", buffer.substr(0, buffer.size() - 2).c_str());

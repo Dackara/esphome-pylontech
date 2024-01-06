@@ -7,7 +7,8 @@ Replace `voltage_low` to `cell_low:` and `voltage_high` to `cell_high`   #(is th
 
  In your confuguration files and use that to your YAML :
 
-```external_components:
+```
+external_components:
   - source: github://dackara/esphome-pylontech@official-patched
     refresh: 0s
 sensor:

@@ -3,9 +3,9 @@ ESPHome component to monitor a pylontech batterie via RS232
 
 VOLTAGE IS VOLTAGE, NOT TEMPERATURE (corrected for voltage_low and voltage_high)
 
-Replace `voltage_low` to `cell_low:` and `voltage_high` to `cell_high`   #(is the voltage of one cellule)
+Replace `voltage_low` to `cell_low:` and `voltage_high` to `cell_high`.   #(is the voltage of one cellule)
 
- In your confuguration files and use that to your YAML :
+ In your confuguration files use that to your YAML :
 
 ```
 external_components:

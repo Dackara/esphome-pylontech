@@ -31,8 +31,7 @@ void PylontechComponent::setup() {
   }
 }
 
-//void PylontechComponent::update() { this->write_str("pwr\n"); }
-void PylontechComponent::update() { this->write_str("pwrsys\n"); }
+void PylontechComponent::update() { this->write_str("pwr\n"); }
 
 void PylontechComponent::loop() {
   uint8_t data;
@@ -83,15 +82,15 @@ void PylontechComponent::process_line_(std::string &buffer) {
       //l.curr_st, l.temp_st, &l.capacity, &l.year, &l.month, &l.day, &l.hour, &l.minute, &l.second, l.bv_st,  // NOLINT
       l.bt_st, &l.mostempr, l.mos_st);                                                                         // NOLINT
   
-//  if (l.bat_num <= 0) {
-//    ESP_LOGD(TAG, "invalid bat_num in line %s", buffer.substr(0, buffer.size() - 2).c_str());
-//    return;
-//  }
-//  if (parsed != 17) {
-//  if (parsed != 23) {
-//    ESP_LOGW(TAG, "invalid line: found only %d items in %s", parsed, buffer.substr(0, buffer.size() - 2).c_str());
-//    return;
-//  }
+  if (l.bat_num <= 0) {
+    ESP_LOGD(TAG, "invalid bat_num in line %s", buffer.substr(0, buffer.size() - 2).c_str());
+    return;
+  }
+  if (parsed != 17) {
+  if (parsed != 23) {
+    ESP_LOGW(TAG, "invalid line: found only %d items in %s", parsed, buffer.substr(0, buffer.size() - 2).c_str());
+    return;
+  }
 
   for (PylontechListener *listener : this->listeners_) {
     listener->on_line_read(&l);

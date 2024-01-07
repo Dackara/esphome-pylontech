@@ -39,13 +39,13 @@ void PylontechTextSensor::on_line_read(PylontechListener::LineContents *line) {
   if (this->temperature_state_text_sensor_ != nullptr) {
     this->temperature_state_text_sensor_->publish_state(std::string(line->temp_st));
   }
-  if (this->date_state_text_sensor_ != nullptr) {
+//  if (this->date_state_text_sensor_ != nullptr) {
 //   this->date_state_text_sensor_->publish_state(std::string(line->year)+"-"+(line->month)+"-"+(line->day));
-     this->date_state_text_sensor_->publish_state(std::string(line->year+"-"+line->month+"-"+line->day));
-  }
-  if (this->time_state_text_sensor_ != nullptr) {
-      this->time_state_text_sensor_->publish_state(std::string(line->hour+":"+line->minute+":"+line->second));
-  }
+//   this->date_state_text_sensor_->publish_state(std::string(line->year+"-"+line->month+"-"+line->day));
+//  }
+//  if (this->time_state_text_sensor_ != nullptr) {
+//      this->time_state_text_sensor_->publish_state(std::string(line->hour+":"+line->minute+":"+line->second));
+//  }
   if (this->bv_state_text_sensor_ != nullptr) {
     this->bv_state_text_sensor_->publish_state(std::string(line->bv_st));
   }

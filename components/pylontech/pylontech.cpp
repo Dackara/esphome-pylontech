@@ -84,7 +84,7 @@ void PylontechComponent::process_line_(std::string &buffer) {
     ESP_LOGD(TAG, "invalid bat_num in line %s", buffer.substr(0, buffer.size() - 2).c_str());
     return;
   }
-  if (parsed != 18) {
+  if (parsed != 23) {
     ESP_LOGW(TAG, "invalid line: found only %d items in %s", parsed, buffer.substr(0, buffer.size() - 2).c_str());
     return;
   }

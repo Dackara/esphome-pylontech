@@ -21,6 +21,9 @@ void PylontechSensor::dump_config() {
   LOG_SENSOR("  ", "Cell high", this->cell_high_sensor_); //voltage_high_sensor_
   LOG_SENSOR("  ", "Capacity", this->capacity_sensor_); //coulomb_sensor_
   LOG_SENSOR("  ", "MOS Temperature", this->mos_temperature_sensor_);
+  LOG_SENSOR("  ", "Voltage low", this->voltage_low_sensor_); //voltage_low_sensor_
+  LOG_SENSOR("  ", "Voltage high", this->voltage_high_sensor_); //voltage_high_sensor_
+  LOG_SENSOR("  ", "Coulomb", this->coulomb_sensor_); //coulomb_sensor_
 }
 
 void PylontechSensor::on_line_read(PylontechListener::LineContents *line) {
@@ -53,6 +56,15 @@ void PylontechSensor::on_line_read(PylontechListener::LineContents *line) {
   }
   if (this->mos_temperature_sensor_ != nullptr) {
     this->mos_temperature_sensor_->publish_state(((float) line->mostempr) / 1000.0f);
+  }
+  if (this->voltage_low_sensor_ != nullptr) {
+    this->voltage_low_sensor_->publish_state(((float) line->vlow) / 1000.0f);
+  }
+  if (this->voltage_high_sensor_ != nullptr) {
+    this->voltage_high_sensor_->publish_state(((float) line->vhigh) / 1000.0f);
+  }
+  if (this->coulomb_sensor_ != nullptr) {
+    this->coulomb_sensor_->publish_state(line->capacity);
   }
 }
 

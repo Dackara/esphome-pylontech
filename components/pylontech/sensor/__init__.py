@@ -27,12 +27,9 @@ PylontechSensor = pylontech_ns.class_("PylontechSensor", cg.Component)
 
 CONF_TEMPERATURE_LOW = "temperature_low"
 CONF_TEMPERATURE_HIGH = "temperature_high"
-CONF_CELL_LOW = "cell_low"
-CONF_CELL_HIGH = "cell_high"
-CONF_CELL_LOW = "voltage_low"
-CONF_CELL_HIGH = "voltage_high"
-CONF_CAPACITY = "capacity"
-CONF_CAPACITY = "coulomb"
+CONF_CELL_LOW = "cell_low" = "voltage_low"
+CONF_CELL_HIGH = "cell_high" = "voltage_high"
+CONF_CAPACITY = "capacity" = "coulomb"
 CONF_MOS_TEMPERATURE = "mos_temperature"
 
 TYPES: dict[str, cv.Schema] = {

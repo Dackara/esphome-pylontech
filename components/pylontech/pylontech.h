@@ -13,7 +13,8 @@ static const uint8_t TEXT_SENSOR_MAX_LEN = 8;
 class PylontechListener {
  public:
   struct LineContents {
-    int bat_num = 0, volt, curr, tempr, tlow, thigh, vlow, vhigh, capacity, mostempr;
+    int bat_num = 0, volt, curr, tempr, tlow, thigh, vlow, vhigh, capacity, 
+        year, month, day, hour, minute, second, mostempr;
     char base_st[TEXT_SENSOR_MAX_LEN], volt_st[TEXT_SENSOR_MAX_LEN], curr_st[TEXT_SENSOR_MAX_LEN],
         temp_st[TEXT_SENSOR_MAX_LEN], date[TEXT_SENSOR_MAX_LEN], time[TEXT_SENSOR_MAX_LEN],
         bv_st[TEXT_SENSOR_MAX_LEN], bt_st[TEXT_SENSOR_MAX_LEN], mos_st[TEXT_SENSOR_MAX_LEN];

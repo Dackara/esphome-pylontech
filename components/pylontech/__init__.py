@@ -6,7 +6,7 @@ from esphome.const import CONF_ID
 
 _LOGGER = logging.getLogger(__name__)
 
-CODEOWNERS = ["@functionpointer"]
+CODEOWNERS = ["@functionpointer", "@Dackara"]
 DEPENDENCIES = ["uart"]
 MULTI_CONF = True
 
@@ -14,9 +14,7 @@ CONF_PYLONTECH_ID = "pylontech_id"
 CONF_BATTERY = "battery"
 
 pylontech_ns = cg.esphome_ns.namespace("pylontech")
-PylontechComponent = pylontech_ns.class_(
-    "PylontechComponent", cg.PollingComponent, uart.UARTDevice
-)
+PylontechComponent = pylontech_ns.class_("PylontechComponent", cg.PollingComponent, uart.UARTDevice)
 PylontechBattery = pylontech_ns.class_("PylontechBattery")
 
 CV_NUM_BATTERIES = cv.int_range(1, 6)

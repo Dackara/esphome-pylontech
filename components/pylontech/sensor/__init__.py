@@ -84,9 +84,6 @@ TYPES: dict[str, cv.Schema] = {
         accuracy_decimals=1,
         device_class=DEVICE_CLASS_TEMPERATURE,
     ),
-
-
-    
     CONF_VOLTAGE_LOW: sensor.sensor_schema(
         unit_of_measurement=UNIT_VOLT,
         accuracy_decimals=3,
@@ -101,11 +98,12 @@ TYPES: dict[str, cv.Schema] = {
         unit_of_measurement=UNIT_PERCENT,
         accuracy_decimals=0,
         device_class=DEVICE_CLASS_BATTERY,
+    ),
 }
 
 CONFIG_SCHEMA = PYLONTECH_COMPONENT_SCHEMA.extend(
     {cv.GenerateID(): cv.declare_id(PylontechSensor)}
-).extend({cv.Optional(marker): schema for marker, schema in TYPES.items()})
+).extend({cv.Optional(type): schema for type, schema in TYPES.items()})
 
 
 async def to_code(config):

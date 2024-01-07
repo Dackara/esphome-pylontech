@@ -31,7 +31,8 @@ void PylontechComponent::setup() {
   }
 }
 
-void PylontechComponent::update() { this->write_str("pwr\n"); }
+//void PylontechComponent::update() { this->write_str("pwr\n"); }
+void PylontechComponent::update() { this->write_str("help\n"); }
 
 void PylontechComponent::loop() {
   uint8_t data;

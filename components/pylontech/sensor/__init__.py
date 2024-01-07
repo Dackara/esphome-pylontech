@@ -29,7 +29,10 @@ CONF_TEMPERATURE_LOW = "temperature_low"
 CONF_TEMPERATURE_HIGH = "temperature_high"
 CONF_CELL_LOW = "cell_low"
 CONF_CELL_HIGH = "cell_high"
+CONF_CELL_LOW = "voltage_low"
+CONF_CELL_HIGH = "voltage_high"
 CONF_CAPACITY = "capacity"
+CONF_CAPACITY = "coulomb"
 CONF_MOS_TEMPERATURE = "mos_temperature"
 
 TYPES: dict[str, cv.Schema] = {
@@ -82,7 +85,7 @@ TYPES: dict[str, cv.Schema] = {
 
 CONFIG_SCHEMA = PYLONTECH_COMPONENT_SCHEMA.extend(
     {cv.GenerateID(): cv.declare_id(PylontechSensor)}
-).extend({cv.Optional(marker): schema for marker, schema in TYPES.items()})
+).extend({cv.Optional(type): schema for type, schema in TYPES.items()})
 
 
 async def to_code(config):

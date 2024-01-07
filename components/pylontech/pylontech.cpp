@@ -74,17 +74,20 @@ void PylontechComponent::process_line_(std::string &buffer) {
   // clang-format on
 
   PylontechListener::LineContents l{};
-  const int parsed = sscanf(                                                                                 // NOLINT
-      buffer.c_str(), "%d %d %d %d %d %d %d %d %7s %7s %7s %7s %d%% %d-%d-%d %d:%d:%d %7s %7s %d %7s",       // NOLINT
-      &l.bat_num, &l.volt, &l.curr, &l.tempr, &l.tlow, &l.thigh, &l.vlow, &l.vhigh, l.base_st, l.volt_st,    // NOLINT
-      l.curr_st, l.temp_st, &l.capacity, &l.year, &l.month, &l.day, &l.hour, &l.minute, &l.second, l.bv_st,  // NOLINT
-      l.bt_st, &l.mostempr, l.mos_st);                                                                       // NOLINT
+  const int parsed = sscanf(                                                                                   // NOLINT
+      //buffer.c_str(), "%d %d %d %d %d %d %d %d %7s %7s %7s %7s %d%% %d-%d-%d %d:%d:%d %7s %7s %d %7s",       // NOLINT
+      buffer.c_str(), "%d %d %d %d %d %d %d %d %7s %7s %7s %7s %d%% %*d-%*d-%*d %*d:%*d:%*d %7s %7s %d %7s",   // NOLINT
+      &l.bat_num, &l.volt, &l.curr, &l.tempr, &l.tlow, &l.thigh, &l.vlow, &l.vhigh, l.base_st, l.volt_st,      // NOLINT
+      l.curr_st, l.temp_st, &l.capacity, l.bv_st,                                                              // NOLINT
+      //l.curr_st, l.temp_st, &l.capacity, &l.year, &l.month, &l.day, &l.hour, &l.minute, &l.second, l.bv_st,  // NOLINT
+      l.bt_st, &l.mostempr, l.mos_st);                                                                         // NOLINT
   
   if (l.bat_num <= 0) {
     ESP_LOGD(TAG, "invalid bat_num in line %s", buffer.substr(0, buffer.size() - 2).c_str());
     return;
   }
-  if (parsed != 23) {
+  if (parsed != 17) {
+//  if (parsed != 23) {
     ESP_LOGW(TAG, "invalid line: found only %d items in %s", parsed, buffer.substr(0, buffer.size() - 2).c_str());
     return;
   }

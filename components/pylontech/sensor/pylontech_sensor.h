@@ -19,6 +19,10 @@ class PylontechSensor : public PylontechListener, public Component {
   SUB_SENSOR(cell_low)
   SUB_SENSOR(cell_high)
 
+  SUB_SENSOR(voltage_low)
+  SUB_SENSOR(voltage_high)
+  SUB_SENSOR(coulomb)
+
   SUB_SENSOR(capacity)
   SUB_SENSOR(mos_temperature)
 

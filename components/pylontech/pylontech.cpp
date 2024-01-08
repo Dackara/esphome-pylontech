@@ -31,7 +31,7 @@ void PylontechComponent::setup() {
   }
 }
 
-void PylontechComponent::update() { this->write_str("pwr\n"); }
+void PylontechComponent::update() { this->write_str("pwrsys\n"); }
 
 void PylontechComponent::loop() {
   uint8_t data;
@@ -74,6 +74,7 @@ void PylontechComponent::process_line_(std::string &buffer) {
   // clang-format on
 
   PylontechListener::LineContents l{};
+  this->write_str("pwr\n")
   const int parsed = sscanf(                                                                                   // NOLINT
       //buffer.c_str(), "%d %d %d %d %d %d %d %d %7s %7s %7s %7s %d%% %d-%d-%d %d:%d:%d %7s %7s %d %7s",       // NOLINT
       buffer.c_str(), "%d %d %d %d %d %d %d %d %7s %7s %7s %7s %d%% %*d-%*d-%*d %*d:%*d:%*d %7s %7s %d %7s",   // NOLINT

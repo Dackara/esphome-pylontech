@@ -78,8 +78,8 @@ void PylontechComponent::process_line_(std::string &buffer) {
       //buffer.c_str(), "%d %d %d %d %d %d %d %d %7s %7s %7s %7s %d%% %d-%d-%d %d:%d:%d %7s %7s %d %7s",       // NOLINT
       buffer.c_str(), "%d %d %d %d %d %d %d %d %7s %7s %7s %7s %d%% %*d-%*d-%*d %*d:%*d:%*d %7s %7s %d %7s",   // NOLINT
       &l.bat_num, &l.volt, &l.curr, &l.tempr, &l.tlow, &l.thigh, &l.vlow, &l.vhigh, l.base_st, l.volt_st,      // NOLINT
-      l.curr_st, l.temp_st, &l.capacity, l.bv_st,                                                              // NOLINT
-      //l.curr_st, l.temp_st, &l.capacity, &l.year, &l.month, &l.day, &l.hour, &l.minute, &l.second, l.bv_st,  // NOLINT
+      l.curr_st, l.temp_st, &l.coulomb, l.bv_st,                                                              // NOLINT
+      //l.curr_st, l.temp_st, &l.ccoulomb, &l.year, &l.month, &l.day, &l.hour, &l.minute, &l.second, l.bv_st,  // NOLINT
       l.bt_st, &l.mostempr, l.mos_st);                                                                         // NOLINT
   
   if (l.bat_num <= 0) {

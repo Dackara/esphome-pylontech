@@ -29,13 +29,10 @@ CONF_TEMPERATURE_LOW = "temperature_low"
 CONF_TEMPERATURE_HIGH = "temperature_high"
 CONF_CELL_LOW = "cell_low"
 CONF_CELL_HIGH = "cell_high"
-CONF_CAPACITY = "capacity"
-CONF_MOS_TEMPERATURE = "mos_temperature"
-
+CONF_COULOMB = "coulomb"
 CONF_VOLTAGE_LOW = "voltage_low"
 CONF_VOLTAGE_HIGH = "voltage_high"
-CONF_COULOMB = "coulomb"
-
+CONF_MOS_TEMPERATURE = "mos_temperature"
 
 TYPES: dict[str, cv.Schema] = {
     CONF_VOLTAGE: sensor.sensor_schema(
@@ -63,26 +60,6 @@ TYPES: dict[str, cv.Schema] = {
         accuracy_decimals=1,
         device_class=DEVICE_CLASS_TEMPERATURE,
     ),
-    CONF_CELL_LOW: sensor.sensor_schema(
-        unit_of_measurement=UNIT_VOLT,
-        accuracy_decimals=3,
-        device_class=DEVICE_CLASS_VOLTAGE,
-    ),
-    CONF_CELL_HIGH: sensor.sensor_schema(
-        unit_of_measurement=UNIT_VOLT,
-        accuracy_decimals=3,
-        device_class=DEVICE_CLASS_VOLTAGE,
-    ),
-    CONF_CAPACITY: sensor.sensor_schema(
-        unit_of_measurement=UNIT_PERCENT,
-        accuracy_decimals=0,
-        device_class=DEVICE_CLASS_BATTERY,
-    ),
-    CONF_MOS_TEMPERATURE: sensor.sensor_schema(
-        unit_of_measurement=UNIT_CELSIUS,
-        accuracy_decimals=1,
-        device_class=DEVICE_CLASS_TEMPERATURE,
-    ),
     CONF_VOLTAGE_LOW: sensor.sensor_schema(
         unit_of_measurement=UNIT_VOLT,
         accuracy_decimals=3,
@@ -97,6 +74,11 @@ TYPES: dict[str, cv.Schema] = {
         unit_of_measurement=UNIT_PERCENT,
         accuracy_decimals=0,
         device_class=DEVICE_CLASS_BATTERY,
+    ),
+    CONF_MOS_TEMPERATURE: sensor.sensor_schema(
+        unit_of_measurement=UNIT_CELSIUS,
+        accuracy_decimals=1,
+        device_class=DEVICE_CLASS_TEMPERATURE,
     ),
 }
 

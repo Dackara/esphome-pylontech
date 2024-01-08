@@ -16,10 +16,9 @@ class PylontechSensor : public PylontechListener, public Component {
   SUB_SENSOR(temperature)
   SUB_SENSOR(temperature_low)
   SUB_SENSOR(temperature_high)
-  SUB_SENSOR(cell_low)
-  SUB_SENSOR(cell_high)
-
-  SUB_SENSOR(capacity)
+  SUB_SENSOR(voltage_low)
+  SUB_SENSOR(voltage_high)
+  SUB_SENSOR(coulomb)
   SUB_SENSOR(mos_temperature)
 
   void on_line_read(LineContents *line) override;

@@ -24,6 +24,7 @@ void PylontechSensor::dump_config() {
 }
 
 void PylontechSensor::on_line_read(PylontechListener::LineContents *line) {
+  // pwr sensor
   if (this->bat_num_ != line->bat_num) {
     return;
   }
@@ -53,6 +54,80 @@ void PylontechSensor::on_line_read(PylontechListener::LineContents *line) {
   }
   if (this->mos_temperature_sensor_ != nullptr) {
     this->mos_temperature_sensor_->publish_state(((float) line->mostempr) / 1000.0f);
+  }
+
+  //pwrsys sensor
+  if (this->value_total_num_sensor_ != nullptr) {
+    this->value_total_num_sensor_->publish_state(line->value_total_num);
+  }
+  if (this->value_present_num_sensor_ != nullptr) {
+    this->value_present_num_sensor_->publish_state(line->value_present_num);
+  }
+  if (this->value_sleep_num_sensor_ != nullptr) {
+    this->value_sleep_num_sensor_->publish_state(line->value_sleep_num);
+  }
+  if (this->value_system_volt_sensor_ != nullptr) {
+    this->value_system_volt_sensor_->publish_state(((float) line->value_system_volt) / 1000.0f);
+  }
+  if (this->value_system_curr_sensor_ != nullptr) {
+    this->value_system_curr_sensor_->publish_state(((float) line->value_system_curr) / 1000.0f);
+  }
+  if (this->value_system_rc_sensor_ != nullptr) {
+    this->value_system_rc_sensor_->publish_state(((float) line->value_system_rc) / 1000.0f);
+  }
+  if (this->value_system_fcc_sensor_ != nullptr) {
+    this->value_system_fcc_sensor_->publish_state(((float) line->value_system_fcc) / 1000.0f);
+  }
+  if (this->value_system_soc_sensor_ != nullptr) {
+    this->value_system_soc_sensor_->publish_state(line->value_system_soc);
+  }
+  if (this->value_system_soh_sensor_ != nullptr) {
+    this->value_system_soh_sensor_->publish_state(line->value_system_soh);
+  }
+  if (this->value_highest_voltage_sensor_ != nullptr) {
+    this->value_highest_voltage_sensor_->publish_state(((float) line->value_highest_voltage) / 1000.0f);
+  }
+  if (this->value_highest_voltage_sensor_ != nullptr) {
+    this->value_highest_voltage_sensor_->publish_state(((float) line->value_highest_voltage) / 1000.0f);
+  }
+  if (this->value_average_voltage_sensor_ != nullptr) {
+    this->value_average_voltage_sensor_->publish_state(((float) line->value_average_voltage) / 1000.0f);
+  }
+  if (this->value_lowest_voltage_sensor_ != nullptr) {
+    this->value_lowest_voltage_sensor_->publish_state(((float) line->value_lowest_voltage) / 1000.0f);
+  }
+  if (this->value_highest_temperature_sensor_ != nullptr) {
+    this->value_highest_temperature_sensor_->publish_state(((float) line->value_highest_temperature) / 1000.0f);
+  }
+  if (this->value_average_temperature_sensor_ != nullptr) {
+    this->value_average_temperature_sensor_->publish_state(((float) line->value_average_temperature) / 1000.0f);
+  }
+  if (this->value_lowest_temperature_sensor_ != nullptr) {
+    this->value_lowest_temperature_sensor_->publish_state(((float) line->value_lowest_temperature) / 1000.0f);
+  }
+  if (this->value_recommend_chg_voltage_sensor_ != nullptr) {
+    this->value_recommend_chg_voltage_sensor_->publish_state(((float) line->value_recommend_chg_voltage) / 1000.0f);
+  }
+  if (this->value_recommend_dsg_voltage_sensor_ != nullptr) {
+    this->value_recommend_dsg_voltage_sensor_->publish_state(((float) line->value_recommend_dsg_voltage) / 1000.0f);
+  }
+  if (this->value_recommend_chg_current_sensor_ != nullptr) {
+    this->value_recommend_chg_current_sensor_->publish_state(((float) line->value_recommend_chg_current) / 1000.0f);
+  }
+  if (this->value_recommend_dsg_current_sensor_ != nullptr) {
+    this->value_recommend_dsg_current_sensor_->publish_state(((float) line->value_recommend_dsg_current) / 1000.0f);
+  }
+  if (this->value_system_recommend_chg_voltage_sensor_ != nullptr) {
+    this->value_system_recommend_chg_voltage_sensor_->publish_state(((float) line->value_system_recommend_chg_voltage) / 1000.0f);
+  }
+  if (this->value_system_recommend_dsg_voltage_sensor_ != nullptr) {
+    this->value_system_recommend_dsg_voltage_sensor_->publish_state(((float) line->value_system_recommend_dsg_voltage) / 1000.0f);
+  }
+  if (this->value_system_recommend_chg_current_sensor_ != nullptr) {
+    this->value_system_recommend_chg_current_sensor_->publish_state(((float) line->value_system_recommend_chg_current) / 1000.0f);
+  }
+  if (this->value_system_recommend_dsg_current_sensor_ != nullptr) {
+    this->value_system_recommend_dsg_current_sensor_->publish_state(((float) line->value_system_recommend_dsg_current) / 1000.0f);
   }
 }
 

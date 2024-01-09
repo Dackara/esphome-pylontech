@@ -61,7 +61,7 @@ void PylontechComponent::process_line_(std::string &buffer) {
 
   PylontechListener::LineContents l{};
   
-  switch(state_serie) {
+  switch(state_serie = 0;) {
     case pwrsys:
       this->write_str("pwrsys\n"); 
         delay(10);

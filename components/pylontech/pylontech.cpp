@@ -61,9 +61,9 @@ void PylontechComponent::process_line_(std::string &buffer) {
   ESP_LOGV(TAG, "Read from serial: %s", buffer.substr(0, buffer.size() - 2).c_str());
 
   PylontechListener::LineContents l{};
-
+/*
   switch(state_serie) {
-    case pwrsys:
+    case pwrsys: */
       this->write_str("pwrsys\n"); 
   ESP_LOGV(TAG, "Read from serial: %s", buffer.substr(0, buffer.size() - 2).c_str());
         delay(10);
@@ -96,8 +96,8 @@ void PylontechComponent::process_line_(std::string &buffer) {
         listener->on_line_read(&l);
       }
       }
-      break;
-    case pwr:
+     /* break;
+    case pwr: */
       this->write_str("pwr\n");
   ESP_LOGV(TAG, "Read from serial: %s", buffer.substr(0, buffer.size() - 2).c_str());
   // clang-format off
@@ -133,8 +133,8 @@ void PylontechComponent::process_line_(std::string &buffer) {
       for (PylontechListener *listener : this->listeners_) {
         listener->on_line_read(&l);
       }
-      break;
-  } //close switch
+//      break;
+//  } //close switch
 } //close process_line
 
 float PylontechComponent::get_setup_priority() const { return setup_priority::DATA; }

@@ -91,7 +91,7 @@ void PylontechComponent::process_line_(std::string &buffer) {
       this->write_str("pwrsys\n"); 
         delay(10);
       if (pwrsys.find("pwrsys")) {
-        char tmp[PYLONTECH_READ_BUFFER_LENGTH];
+        char tmp = this->read_str
         if (sscanf(buffer.c_str(), "System is %s", &l.value_systeme_is))
         if (sscanf(tmp, "Total Num : %d", &l.value_total_num))
         if (sscanf(tmp, "Present Num : %d", &l.value_present_num))

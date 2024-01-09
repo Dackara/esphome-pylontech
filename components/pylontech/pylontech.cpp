@@ -58,6 +58,42 @@ void PylontechComponent::loop() {
 }
 
 void PylontechComponent::process_line_(std::string &buffer) {
+
+  PylontechListener::LineContents l{};
+  
+  switch(state_serie) {
+    case pwrsys:
+      this->write_str("pwrsys\n"); 
+        delay(10);
+      if (pwrsys.find("pwrsys")) {
+        if (sscanf(tmp, "System is %s", &l.value_systeme_is);)
+        if (sscanf(tmp, "Total Num : %d", &l.value_total_num);)
+        if (sscanf(tmp, "Present Num : %d", &l.value_present_num);)
+        if (sscanf(tmp, "Sleep Num : %d", &l.value_sleep_num);)
+        if (sscanf(tmp, "System Volt : %d mV", &l.value_system_volt);)
+        if (sscanf(tmp, "System Curr : %d mA", &l.value_system_curr);)
+        if (sscanf(tmp, "System RC : %d mAH", &l.value_system_rc);)
+        if (sscanf(tmp, "System FCC : %d mAH", &l.value_system_fcc);)
+        if (sscanf(tmp, "System SOC : %d%%", &l.value_system_soc);)
+        if (sscanf(tmp, "System SOH : %d%%", &l.value_system_soh);)
+        if (sscanf(tmp, "Highest voltage : %d mV", &l.value_highest_voltage);)
+        if (sscanf(tmp, "Average voltage : %d mV", &l.value_average_voltage);)
+        if (sscanf(tmp, "Lowest voltage : %d mV", &l.value_lowest_voltage);)
+        if (sscanf(tmp, "Highest temperature : %d mC", &l.value_highest_temperature);)
+        if (sscanf(tmp, "Average temperature : %d mC", &l.value_average_temperature);)
+        if (sscanf(tmp, "Lowest temperature : %d mC", &l.value_lowest_temperature);)
+        if (sscanf(tmp, "Recommend chg voltage : %d mV", &l.value_recommend_chg_voltage);)
+        if (sscanf(tmp, "Recommend dsg voltage : %d mV", &l.value_recommend_dsg_voltage);)
+        if (sscanf(tmp, "Recommend chg current : %d mA", &l.value_recommend_chg_current);)
+        if (sscanf(tmp, "Recommend dsg current : %d mA", &l.value_recommend_dsg_current);)
+        if (sscanf(tmp, "system Recommend chg voltage : %d mV", &l.value_system_recommend_chg_voltage);)
+        if (sscanf(tmp, "system Recommend dsg voltage : %d mV", &l.value_system_recommend_dsg_voltage);)
+        if (sscanf(tmp, "system Recommend chg current : %d mA", &l.value_system_recommend_chg_current);)
+        if (sscanf(tmp, "system Recommend dsg current : %d mA", &l.value_system_recommend_dsg_current);)
+      }
+      break;
+    case pwr:
+      this->write_str("pwr\n");
   ESP_LOGV(TAG, "Read from serial: %s", buffer.substr(0, buffer.size() - 2).c_str());
   // clang-format off
   // example line to parse:
@@ -72,66 +108,28 @@ void PylontechComponent::process_line_(std::string &buffer) {
   // l.curr_st, l.temp_st, &l.capacity, l.date,    l.time,       l.bv_st, l.bt_st, &l.mostempr, l.mos_st //x9
 
   // clang-format on
-
-  PylontechListener::LineContents l{};
+        delay(10);
+      const int parsed = sscanf(                                                                                   // NOLINT
+          //buffer.c_str(), "%d %d %d %d %d %d %d %d %7s %7s %7s %7s %d%% %d-%d-%d %d:%d:%d %7s %7s %d %7s",       // NOLINT
+          //l.curr_st, l.temp_st, &l.ccoulomb, &l.year, &l.month, &l.day, &l.hour, &l.minute, &l.second, l.bv_st,  // NOLINT
+          buffer.c_str(), "%d %d %d %d %d %d %d %d %7s %7s %7s %7s %d%% %*d-%*d-%*d %*d:%*d:%*d %7s %7s %d %7s",   // NOLINT
+          &l.bat_num, &l.volt, &l.curr, &l.tempr, &l.tlow, &l.thigh, &l.vlow, &l.vhigh, l.base_st, l.volt_st,      // NOLINT
+          l.curr_st, l.temp_st, &l.coulomb, l.bv_st, l.bt_st, &l.mostempr, l.mos_st);                              // NOLINT
   
-  switch(state_serie) {
-    case pwrsys:
-    this->write_str("pwrsys\n"); 
-      delay(10);
-    if (pwrsys.find("pwrsys")) {
-      if (sscanf(tmp, "System is %s", &l.value_systeme_is);)
-      if (sscanf(tmp, "Total Num : %d", &l.value_total_num);)
-      if (sscanf(tmp, "Present Num : %d", &l.value_present_num);)
-      if (sscanf(tmp, "Sleep Num : %d", &l.value_sleep_num);)
-      if (sscanf(tmp, "System Volt : %d mV", &l.value_system_volt);)
-      if (sscanf(tmp, "System Curr : %d mA", &l.value_system_curr);)
-      if (sscanf(tmp, "System RC : %d mAH", &l.value_system_rc);)
-      if (sscanf(tmp, "System FCC : %d mAH", &l.value_system_fcc);)
-      if (sscanf(tmp, "System SOC : %d%%", &l.value_system_soc);)
-      if (sscanf(tmp, "System SOH : %d%%", &l.value_system_soh);)
-      if (sscanf(tmp, "Highest voltage : %d mV", &l.value_highest_voltage);)
-      if (sscanf(tmp, "Average voltage : %d mV", &l.value_average_voltage);)
-      if (sscanf(tmp, "Lowest voltage : %d mV", &l.value_lowest_voltage);)
-      if (sscanf(tmp, "Highest temperature : %d mC", &l.value_highest_temperature);)
-      if (sscanf(tmp, "Average temperature : %d mC", &l.value_average_temperature);)
-      if (sscanf(tmp, "Lowest temperature : %d mC", &l.value_lowest_temperature);)
-      if (sscanf(tmp, "Recommend chg voltage : %d mV", &l.value_recommend_chg_voltage);)
-      if (sscanf(tmp, "Recommend dsg voltage : %d mV", &l.value_recommend_dsg_voltage);)
-      if (sscanf(tmp, "Recommend chg current : %d mA", &l.value_recommend_chg_current);)
-      if (sscanf(tmp, "Recommend dsg current : %d mA", &l.value_recommend_dsg_current);)
-      if (sscanf(tmp, "system Recommend chg voltage : %d mV", &l.value_system_recommend_chg_voltage);)
-      if (sscanf(tmp, "system Recommend dsg voltage : %d mV", &l.value_system_recommend_dsg_voltage);)
-      if (sscanf(tmp, "system Recommend chg current : %d mA", &l.value_system_recommend_chg_current);)
-      if (sscanf(tmp, "system Recommend dsg current : %d mA", &l.value_system_recommend_dsg_current);)
-    }
-    break;
-      delay(10);
-    this->write_str("pwr\n");
-    const int parsed = sscanf(                                                                                   // NOLINT
-        //buffer.c_str(), "%d %d %d %d %d %d %d %d %7s %7s %7s %7s %d%% %d-%d-%d %d:%d:%d %7s %7s %d %7s",       // NOLINT
-        buffer.c_str(), "%d %d %d %d %d %d %d %d %7s %7s %7s %7s %d%% %*d-%*d-%*d %*d:%*d:%*d %7s %7s %d %7s",   // NOLINT
-        &l.bat_num, &l.volt, &l.curr, &l.tempr, &l.tlow, &l.thigh, &l.vlow, &l.vhigh, l.base_st, l.volt_st,      // NOLINT
-        l.curr_st, l.temp_st, &l.coulomb, l.bv_st,                                                              // NOLINT
-        //l.curr_st, l.temp_st, &l.ccoulomb, &l.year, &l.month, &l.day, &l.hour, &l.minute, &l.second, l.bv_st,  // NOLINT
-        l.bt_st, &l.mostempr, l.mos_st);                                                                         // NOLINT
-  
-    if (l.bat_num <= 0) {
-      ESP_LOGD(TAG, "invalid bat_num in line %s", buffer.substr(0, buffer.size() - 2).c_str());
-      return;
-    }
-    if (parsed < 14) {
-  //  if (parsed != 17) { //ACTUAL WORKING
-  //  if (parsed != 23) { //WITH DATE-TIME
-      ESP_LOGW(TAG, "invalid line: found only %d items in %s", parsed, buffer.substr(0, buffer.size() - 2).c_str());
-      return;
-    }
+      if (l.bat_num <= 0) {
+        ESP_LOGD(TAG, "invalid bat_num in line %s", buffer.substr(0, buffer.size() - 2).c_str());
+        return;
+      }
+      if (parsed < 14) {
+        ESP_LOGW(TAG, "invalid line: found only %d items in %s", parsed, buffer.substr(0, buffer.size() - 2).c_str());
+        return;
+      }
 
-    for (PylontechListener *listener : this->listeners_) {
-      listener->on_line_read(&l);
-    }
-  }
-}
+      for (PylontechListener *listener : this->listeners_) {
+        listener->on_line_read(&l);
+      }
+  } //close switch
+} //close process_line
 
 float PylontechComponent::get_setup_priority() const { return setup_priority::DATA; }
 

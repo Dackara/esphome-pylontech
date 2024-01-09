@@ -91,34 +91,31 @@ void PylontechComponent::process_line_(std::string &buffer) {
       this->write_str("pwrsys\n"); 
         delay(10);
       if (pwrsys.find("pwrsys")) {
-        id(rawString).publish_state(str.c_str());
-        if (sscanf(str.c_str(), "System is %s", &value_systeme_is) == 1) {
-            id(value_systeme_is).publish_state(value_systeme_is);
-            return;
-          }
-        if (sscanf(str.c_str(), "Total Num : %d", &l.value_total_num);)
-        if (sscanf(str.c_str(), "Present Num : %d", &l.value_present_num);)
-        if (sscanf(str.c_str(), "Sleep Num : %d", &l.value_sleep_num);)
-        if (sscanf(str.c_str(), "System Volt : %d mV", &l.value_system_volt);)
-        if (sscanf(str.c_str(), "System Curr : %d mA", &l.value_system_curr);)
-        if (sscanf(str.c_str(), "System RC : %d mAH", &l.value_system_rc);)
-        if (sscanf(str.c_str(), "System FCC : %d mAH", &l.value_system_fcc);)
-        if (sscanf(str.c_str(), "System SOC : %d%%", &l.value_system_soc);)
-        if (sscanf(str.c_str(), "System SOH : %d%%", &l.value_system_soh);)
-        if (sscanf(str.c_str(), "Highest voltage : %d mV", &l.value_highest_voltage);)
-        if (sscanf(str.c_str(), "Average voltage : %d mV", &l.value_average_voltage);)
-        if (sscanf(str.c_str(), "Lowest voltage : %d mV", &l.value_lowest_voltage);)
-        if (sscanf(str.c_str(), "Highest temperature : %d mC", &l.value_highest_temperature);)
-        if (sscanf(str.c_str(), "Average temperature : %d mC", &l.value_average_temperature);)
-        if (sscanf(str.c_str(), "Lowest temperature : %d mC", &l.value_lowest_temperature);)
-        if (sscanf(str.c_str(), "Recommend chg voltage : %d mV", &l.value_recommend_chg_voltage);)
-        if (sscanf(str.c_str(), "Recommend dsg voltage : %d mV", &l.value_recommend_dsg_voltage);)
-        if (sscanf(str.c_str(), "Recommend chg current : %d mA", &l.value_recommend_chg_current);)
-        if (sscanf(str.c_str(), "Recommend dsg current : %d mA", &l.value_recommend_dsg_current);)
-        if (sscanf(str.c_str(), "system Recommend chg voltage : %d mV", &l.value_system_recommend_chg_voltage);)
-        if (sscanf(str.c_str(), "system Recommend dsg voltage : %d mV", &l.value_system_recommend_dsg_voltage);)
-        if (sscanf(str.c_str(), "system Recommend chg current : %d mA", &l.value_system_recommend_chg_current);)
-        if (sscanf(str.c_str(), "system Recommend dsg current : %d mA", &l.value_system_recommend_dsg_current);)
+        char tmp[PIPSOLAR_READ_BUFFER_LENGTH];
+        if (sscanf(buffer.c_str(), "System is %s", &l.value_systeme_is);)
+        if (sscanf(tmp, "Total Num : %d", &l.value_total_num);)
+        if (sscanf(tmp, "Present Num : %d", &l.value_present_num);)
+        if (sscanf(tmp, "Sleep Num : %d", &l.value_sleep_num);)
+        if (sscanf(tmp, "System Volt : %d mV", &l.value_system_volt);)
+        if (sscanf(tmp, "System Curr : %d mA", &l.value_system_curr);)
+        if (sscanf(tmp, "System RC : %d mAH", &l.value_system_rc);)
+        if (sscanf(tmp, "System FCC : %d mAH", &l.value_system_fcc);)
+        if (sscanf(tmp, "System SOC : %d%%", &l.value_system_soc);)
+        if (sscanf(tmp, "System SOH : %d%%", &l.value_system_soh);)
+        if (sscanf(tmp, "Highest voltage : %d mV", &l.value_highest_voltage);)
+        if (sscanf(tmp, "Average voltage : %d mV", &l.value_average_voltage);)
+        if (sscanf(tmp, "Lowest voltage : %d mV", &l.value_lowest_voltage);)
+        if (sscanf(tmp, "Highest temperature : %d mC", &l.value_highest_temperature);)
+        if (sscanf(tmp, "Average temperature : %d mC", &l.value_average_temperature);)
+        if (sscanf(tmp, "Lowest temperature : %d mC", &l.value_lowest_temperature);)
+        if (sscanf(tmp, "Recommend chg voltage : %d mV", &l.value_recommend_chg_voltage);)
+        if (sscanf(tmp, "Recommend dsg voltage : %d mV", &l.value_recommend_dsg_voltage);)
+        if (sscanf(tmp, "Recommend chg current : %d mA", &l.value_recommend_chg_current);)
+        if (sscanf(tmp, "Recommend dsg current : %d mA", &l.value_recommend_dsg_current);)
+        if (sscanf(tmp, "system Recommend chg voltage : %d mV", &l.value_system_recommend_chg_voltage);)
+        if (sscanf(tmp, "system Recommend dsg voltage : %d mV", &l.value_system_recommend_dsg_voltage);)
+        if (sscanf(tmp, "system Recommend chg current : %d mA", &l.value_system_recommend_chg_current);)
+        if (sscanf(tmp, "system Recommend dsg current : %d mA", &l.value_system_recommend_dsg_current);)
       for (PylontechListener *listener : this->listeners_) {
         listener->on_line_read(&l);
       }

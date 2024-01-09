@@ -28,8 +28,6 @@ PylontechSensor = pylontech_ns.class_("PylontechSensor", cg.Component)
 # pwr sensors
 CONF_TEMPERATURE_LOW = "temperature_low"
 CONF_TEMPERATURE_HIGH = "temperature_high"
-CONF_CELL_LOW = "cell_low"
-CONF_CELL_HIGH = "cell_high"
 CONF_COULOMB = "coulomb"
 CONF_VOLTAGE_LOW = "voltage_low"
 CONF_VOLTAGE_HIGH = "voltage_high"

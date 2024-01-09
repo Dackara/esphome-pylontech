@@ -71,10 +71,17 @@ class PylontechComponent : public PollingComponent, public uart::UARTDevice {
   PylontechComponent();
 
 
-  enum state_serie {
+  enum PollingCommand {
     pwrsys = 0,
     pwr = 1,
   };
+
+  struct PollingCommand {
+    uint8_t *command;
+    uint8_t length = 0;
+    uint8_t errors;
+    ENUMPollingCommand identifier;
+};
 
   /// Schedule data readings.
   void update() override;

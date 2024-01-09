@@ -71,7 +71,7 @@ class PylontechComponent : public PollingComponent, public uart::UARTDevice {
   PylontechComponent();
 
 
-  enum PollingCommand {
+  enum ENUMPollingCommand {
     pwrsys = 0,
     pwr = 1,
   };

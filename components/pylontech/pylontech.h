@@ -48,8 +48,7 @@ class PylontechListener {
         system_recommend_chg_voltage,
         system_recommend_dsg_voltage,
         system_recommend_chg_current,
-        system_recommend_dsg_current,
-        ;
+        system_recommend_dsg_current;
     char base_st[TEXT_SENSOR_MAX_LEN], 
          volt_st[TEXT_SENSOR_MAX_LEN], 
          curr_st[TEXT_SENSOR_MAX_LEN],
@@ -59,8 +58,7 @@ class PylontechListener {
          bv_st[TEXT_SENSOR_MAX_LEN], 
          bt_st[TEXT_SENSOR_MAX_LEN], 
          mos_st[TEXT_SENSOR_MAX_LEN],
-        systeme_is[TEXT_SENSOR_MAX_LEN], //char
-        ;
+         systeme_is[TEXT_SENSOR_MAX_LEN]; //char
   };
 
   virtual void on_line_read(LineContents *line);

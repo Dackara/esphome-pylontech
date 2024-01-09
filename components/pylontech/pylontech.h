@@ -70,7 +70,7 @@ class PylontechComponent : public PollingComponent, public uart::UARTDevice {
  public:
   PylontechComponent();
 
-  unsigned state_serie = 0;
+  unsigned state_serie = 1;
 
   enum ENUMPollingCommand {
     pwrsys = 0,

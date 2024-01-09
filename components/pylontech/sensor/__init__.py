@@ -132,7 +132,6 @@ TYPES: dict[str, cv.Schema] = {
         device_class=DEVICE_CLASS_CURRENT,
     ),
     CONF_SYSTEM_FCC: sensor.sensor_schema(
-        unit_of_measurement=AMPERE_HOUR,
         accuracy_decimals=3,
         device_class=DEVICE_CLASS_CURRENT,
     ),

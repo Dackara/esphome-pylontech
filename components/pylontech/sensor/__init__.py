@@ -25,7 +25,6 @@ from .. import (
 
 PylontechSensor = pylontech_ns.class_("PylontechSensor", cg.Component)
 
-CONF_UNIT_AMPERE_HOUR = "Ah"
 # pwr sensors
 CONF_TEMPERATURE_LOW = "temperature_low"
 CONF_TEMPERATURE_HIGH = "temperature_high"
@@ -129,7 +128,6 @@ TYPES: dict[str, cv.Schema] = {
         device_class=DEVICE_CLASS_CURRENT,
     ),
     CONF_SYSTEM_RC: sensor.sensor_schema(
-        unit_of_measurement=AMPERE_HOUR,
         accuracy_decimals=3,
         device_class=DEVICE_CLASS_CURRENT,
     ),

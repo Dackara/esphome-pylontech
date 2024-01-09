@@ -13,11 +13,6 @@ static const uint8_t TEXT_SENSOR_MAX_LEN = 8;
 class PylontechListener {
  public:
 
-  enum state_serie {
-    pwrsys = 0,
-    pwr = 1,
-  };
-
   struct LineContents {
     int bat_num = 0, 
         volt, 
@@ -74,6 +69,12 @@ class PylontechListener {
 class PylontechComponent : public PollingComponent, public uart::UARTDevice {
  public:
   PylontechComponent();
+
+
+  enum state_serie {
+    pwrsys = 0,
+    pwr = 1,
+  };
 
   /// Schedule data readings.
   void update() override;

@@ -42,10 +42,10 @@ class PylontechSensor : public PylontechListener, public Component {
   SUB_SENSOR(value_recommend_dsg_voltage)
   SUB_SENSOR(value_recommend_chg_current)
   SUB_SENSOR(value_recommend_dsg_current)
-  SUB_SENSOR(valu_systee_recommend_chg_voltage)
-  SUB_SENSOR(value_syste_recommend_dsg_voltage)
-  SUB_SENSOR(value_syste_recommend_chg_current)
-  SUB_SENSOR(value_syste_recommend_dsg_current)
+  SUB_SENSOR(value_system_recommend_chg_voltage)
+  SUB_SENSOR(value_system_recommend_dsg_voltage)
+  SUB_SENSOR(value_system_recommend_chg_current)
+  SUB_SENSOR(value_system_recommend_dsg_current)
 
   void on_line_read(LineContents *line) override;
 

@@ -102,8 +102,6 @@ class PylontechComponent : public PollingComponent, public uart::UARTDevice {
   void add_polling_command_(const char *command, ENUMPollingCommand polling_command);
   uint8_t last_polling_command_ = 0;
   PollingCommand used_polling_commands_[15];
-  uint8_t read_buffer_[PYLONTECH_READ_BUFFER_LENGTH];
-  static const size_t PYLONTECH_READ_BUFFER_LENGTH = 130;  // maximum supported answer length
 
   // ring buffer
   std::string buffer_[NUM_BUFFERS];

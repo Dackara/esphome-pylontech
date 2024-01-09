@@ -58,6 +58,7 @@ void PylontechComponent::loop() {
 }
 
 void PylontechComponent::process_line_(std::string &buffer) {
+  ESP_LOGV(TAG, "Read from serial: %s", buffer.substr(0, buffer.size() - 2).c_str());
 
   PylontechListener::LineContents l{};
 

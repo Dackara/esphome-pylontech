@@ -91,7 +91,11 @@ void PylontechComponent::process_line_(std::string &buffer) {
       this->write_str("pwrsys\n"); 
         delay(10);
       if (pwrsys.find("pwrsys")) {
-        if (sscanf(str.c_str(), "System is %s", &l.value_systeme_is);)
+        id(rawString).publish_state(str.c_str());
+        if (sscanf(str.c_str(), "System is %s", &value_systeme_is) == 1) {
+            id(value_systeme_is).publish_state(value_systeme_is);
+            return;
+          }
         if (sscanf(str.c_str(), "Total Num : %d", &l.value_total_num);)
         if (sscanf(str.c_str(), "Present Num : %d", &l.value_present_num);)
         if (sscanf(str.c_str(), "Sleep Num : %d", &l.value_sleep_num);)

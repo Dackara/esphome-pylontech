@@ -100,6 +100,8 @@ class PylontechComponent : public PollingComponent, public uart::UARTDevice {
   uint8_t send_next_command_();
   void send_next_poll_();
   void add_polling_command_(const char *command, ENUMPollingCommand polling_command);
+  uint8_t last_polling_command_ = 0;
+  PollingCommand used_polling_commands_[15];
 
   // ring buffer
   std::string buffer_[NUM_BUFFERS];

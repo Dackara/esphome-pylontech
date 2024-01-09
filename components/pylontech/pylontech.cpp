@@ -90,6 +90,9 @@ void PylontechComponent::process_line_(std::string &buffer) {
         if (sscanf(tmp, "system Recommend dsg voltage : %d mV", &l.value_system_recommend_dsg_voltage);)
         if (sscanf(tmp, "system Recommend chg current : %d mA", &l.value_system_recommend_chg_current);)
         if (sscanf(tmp, "system Recommend dsg current : %d mA", &l.value_system_recommend_dsg_current);)
+      for (PylontechListener *listener : this->listeners_) {
+        listener->on_line_read(&l);
+      }
       }
       break;
     case pwr:

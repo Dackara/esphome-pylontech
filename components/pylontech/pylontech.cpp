@@ -86,7 +86,7 @@ void PylontechComponent::process_line_(std::string &buffer) {
 
   PylontechListener::LineContents l{};
   
-  switch(this->send_next_command_()) {
+  switch() {
     case pwrsys:
       this->write_str("pwrsys\n"); 
   ESP_LOGV(TAG, "Read from serial: %s", buffer.substr(0, buffer.size() - 2).c_str());

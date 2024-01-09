@@ -10,13 +10,14 @@ namespace pylontech {
 static const uint8_t NUM_BUFFERS = 20;
 static const uint8_t TEXT_SENSOR_MAX_LEN = 8;
 
-enum state_serie {
-  pwrsys = 0,
-  pwr = 1,
-};
-
 class PylontechListener {
  public:
+
+  enum state_serie {
+    pwrsys = 0,
+    pwr = 1,
+  };
+
   struct LineContents {
     int bat_num = 0, 
         volt, 

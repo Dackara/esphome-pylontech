@@ -66,17 +66,12 @@ void PylontechComponent::process_line_(std::string &buffer) {
     case pwrsys: 
       this->write_str("pwrsys\n"); 
 //  ESP_LOGV(TAG, "Read from serial: %s", buffer.substr(0, buffer.size() - 2).c_str());
-        delay(10);
-      if (sscanf(buffer.c_str(), "pwrsys")) {
-        ESP_LOGD(TAG, "pwrsys command OK"); }
-        if (sscanf(str.c_str(), "Present Num : %d", &intValue) == 1) {
-            id(value_present_num).publish_state(intValue);
-            return;
-          }
-        if (sscanf(buffer.c_str(), "System is %s", &l.value_systeme_is));
+       // delay(10);
+      if (sscanf(buffer.c_str(), "pwrsys")) {ESP_LOGD(TAG, "pwrsys command OK"); }
+        if (sscanf(buffer.c_str(), "System is %s", &l.value_systeme_is))
         if (sscanf(buffer.c_str(), "Total Num                : %d", &l.value_total_num))
-        if (sscanf(buffer.c_str(), "Present Num : %d", &l.value_present_num));
-        if (sscanf(buffer.c_str(), "Sleep Num : %d", &l.value_sleep_num))
+        if (sscanf(buffer.c_str(), "Present Num : %d", value_present_num)) {value_present_num.publish_state(value_present_num);}
+        if (sscanf(buffer.c_str(), "Sleep Num : %d", &l.value_sleep_num)) {ESP_LOGD(TAG, "Sleep Num : %d"); }
         if (sscanf(buffer.c_str(), "System Volt : %d mV", &l.value_system_volt))
         if (sscanf(buffer.c_str(), "System Curr : %d mA", &l.value_system_curr))
         if (sscanf(buffer.c_str(), "System RC : %d mAH", &l.value_system_rc))

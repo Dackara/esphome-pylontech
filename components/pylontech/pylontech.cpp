@@ -67,9 +67,10 @@ void PylontechComponent::process_line_(std::string &buffer) {
       this->write_str("pwrsys\n"); 
 //  ESP_LOGV(TAG, "Read from serial: %s", buffer.substr(0, buffer.size() - 2).c_str());
         delay(10);
- //     if (sscanf(buffer.c_str(), "pwrsys")) {
+      if (sscanf(buffer.c_str(), "pwrsys")) {
+        ESP_LOGD(TAG, "pwrsys command OK"); }
         if (sscanf(buffer.c_str(), "System is %s", &l.value_systeme_is));
-        if (sscanf(buffer.c_str(), "Total Num : %d", &l.value_total_num)) {for (PylontechListener *listener : this->listeners_) {listener->on_line_read(&l);} }
+        if (sscanf(buffer.c_str(), "Total Num                : %d", &l.value_total_num))
         if (sscanf(buffer.c_str(), "Present Num : %d", &l.value_present_num));
         if (sscanf(buffer.c_str(), "Sleep Num : %d", &l.value_sleep_num))
         if (sscanf(buffer.c_str(), "System Volt : %d mV", &l.value_system_volt))
@@ -100,6 +101,8 @@ void PylontechComponent::process_line_(std::string &buffer) {
         delay(100);
     case pwr: 
       this->write_str("pwr\n");
+      if (sscanf(buffer.c_str(), "pwr")) {
+        ESP_LOGD(TAG, "pwr command OK"); }
   ESP_LOGV(TAG, "Read from serial: %s", buffer.substr(0, buffer.size() - 2).c_str());
   // clang-format off
   // example line to parse:

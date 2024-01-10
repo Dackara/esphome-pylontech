@@ -65,9 +65,6 @@ void PylontechComponent::process_line_(std::string &buffer) {
   switch(state_serie) {
     case pwrsys: 
       this->write_str("pwrsys\n"); 
-      std::string str(bytes.begin(), bytes.end());
-      id(rawString).publish_state(str.c_str());
-      int intValue = 0;
 //  ESP_LOGV(TAG, "Read from serial: %s", buffer.substr(0, buffer.size() - 2).c_str());
         delay(10);
       if (sscanf(buffer.c_str(), "pwrsys")) {

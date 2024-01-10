@@ -70,7 +70,7 @@ void PylontechComponent::process_line_(std::string &buffer) {
       if (sscanf(buffer.c_str(), "pwrsys")) {ESP_LOGD(TAG, "pwrsys command OK"); }
         if (sscanf(buffer.c_str(), "System is %s", &l.value_systeme_is))
         if (sscanf(buffer.c_str(), "Total Num                : %d", &l.value_total_num))
-        if (sscanf(buffer.c_str(), "Present Num : %d", &value_present_num)) {value_present_num.publish_state(value_present_num);}
+        if (sscanf(buffer.c_str(), "Present Num : %d", &l.value_present_num)) {value_present_num.publish_state(value_present_num);}
         if (sscanf(buffer.c_str(), "Sleep Num : %d", &l.value_sleep_num)) {ESP_LOGD(TAG, "Sleep Num : %d"); }
         if (sscanf(buffer.c_str(), "System Volt : %d mV", &l.value_system_volt))
         if (sscanf(buffer.c_str(), "System Curr : %d mA", &l.value_system_curr))

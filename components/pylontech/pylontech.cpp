@@ -67,7 +67,7 @@ void PylontechComponent::process_line_(std::string &buffer) {
       this->write_str("pwrsys\n"); 
 //  ESP_LOGV(TAG, "Read from serial: %s", buffer.substr(0, buffer.size() - 2).c_str());
         delay(10);
-      if (sscanf(buffer.c_str(), "pwrsys")) {
+ //     if (sscanf(buffer.c_str(), "pwrsys")) {
         if (sscanf(buffer.c_str(), "System is %s", &l.value_systeme_is));
         if (sscanf(buffer.c_str(), "Total Num : %d", &l.value_total_num)) {for (PylontechListener *listener : this->listeners_) {listener->on_line_read(&l);} }
         if (sscanf(buffer.c_str(), "Present Num : %d", &l.value_present_num));
@@ -95,7 +95,7 @@ void PylontechComponent::process_line_(std::string &buffer) {
         for (PylontechListener *listener : this->listeners_) {
           listener->on_line_read(&l);
         }
-      }
+  //    }
       break;
         delay(100);
     case pwr: 

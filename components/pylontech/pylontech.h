@@ -72,10 +72,6 @@ class PylontechComponent : public PollingComponent, public uart::UARTDevice {
 
   unsigned state_serie = 1;
 
-  std::string str(bytes.begin(), bytes.end());
-  id(rawString).publish_state(str.c_str());
-  int intValue = 0;
-
   enum ENUMPollingCommand {
     pwrsys = 0,
     pwr = 1,

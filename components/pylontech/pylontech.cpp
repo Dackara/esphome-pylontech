@@ -69,7 +69,7 @@ void PylontechComponent::process_line_(std::string &buffer) {
         delay(10);
       if (sscanf(buffer.c_str(), "pwrsys")) {
         if (sscanf(buffer.c_str(), "System is %s", &l.value_systeme_is));
-        if (sscanf(buffer.c_str(), "Total Num : %d", &l.value_total_num)) {for (PylontechListener *listener : this->listeners_) {listener->on_line_read(&l)} }
+        if (sscanf(buffer.c_str(), "Total Num : %d", &l.value_total_num)) {for (PylontechListener *listener : this->listeners_) {listener->on_line_read(&l);} }
         if (sscanf(buffer.c_str(), "Present Num : %d", &l.value_present_num));
         if (sscanf(buffer.c_str(), "Sleep Num : %d", &l.value_sleep_num))
         if (sscanf(buffer.c_str(), "System Volt : %d mV", &l.value_system_volt))
@@ -91,7 +91,7 @@ void PylontechComponent::process_line_(std::string &buffer) {
         if (sscanf(buffer.c_str(), "system Recommend chg voltage : %d mV", &l.value_system_recommend_chg_voltage))
         if (sscanf(buffer.c_str(), "system Recommend dsg voltage : %d mV", &l.value_system_recommend_dsg_voltage))
         if (sscanf(buffer.c_str(), "system Recommend chg current : %d mA", &l.value_system_recommend_chg_current))
-        if (sscanf(buffer.c_str(), "system Recommend dsg current: %d", &l.value_system_recommend_dsg_current)) {this->value_system_recommend_dsg_current.publish_state(stringValue)}
+        if (sscanf(buffer.c_str(), "system Recommend dsg current: %d", &l.value_system_recommend_dsg_current)) {this->&l.value_system_recommend_dsg_current.publish_state}
             return;
           
         for (PylontechListener *listener : this->listeners_) {

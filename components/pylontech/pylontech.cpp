@@ -87,8 +87,6 @@ void PylontechComponent::process_line_(std::string &buffer) {
     return;
   }
   if (parsed < 14) {
-//  if (parsed != 17) { //ACTUAL WORKING
-//  if (parsed != 23) { //WITH DATE-TIME
     ESP_LOGW(TAG, "invalid line: found only %d items in %s", parsed, buffer.substr(0, buffer.size() - 2).c_str());
     return;
   }

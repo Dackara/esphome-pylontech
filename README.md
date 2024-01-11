@@ -19,29 +19,11 @@
 - `B.T.St`  >> Etat BT ? BUS Temperature ?
 - `M.T.St`  >> Etat Mos Temperature
 
-## Allow possible config in your yaml :
-- `voltage_low:` or `cell_low:`
-- `voltage_high:` or `cell_high:`
-- `coulomb:` or `capacity:`
-
 ## EXEMPLE :
 ```
 external_components:
   - source: github://dackara/esphome-pylontech@official-patched
     refresh: 0s
-sensor:
-    cell_low:
-      id: ${pylon_id}${pylon_number}_cell_low
-      name: '${pylon_name}${pylon_number}_cell_low'
-    cell_high:
-      id: ${pylon_id}${pylon_number}_cell_high
-      name: '${pylon_name}${pylon_number}_cell_high'
-#    voltage_low:
-#      id: bat1_low_voltage
-#      name: "Battery1 low voltage" 
-#    voltage_high:
-#      id: bat1_high_voltage
-#      name: "Battery1 high voltage"
 
 text_sensor:
     bv_state:

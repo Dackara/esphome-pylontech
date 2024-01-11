@@ -17,7 +17,7 @@ pylontech_ns = cg.esphome_ns.namespace("pylontech")
 PylontechComponent = pylontech_ns.class_("PylontechComponent", cg.PollingComponent, uart.UARTDevice)
 PylontechBattery = pylontech_ns.class_("PylontechBattery")
 
-CV_NUM_BATTERIES = cv.int_range(1, 6)
+CV_NUM_BATTERIES = cv.int_range(1, 16)
 
 PYLONTECH_COMPONENT_SCHEMA = cv.Schema(
     {

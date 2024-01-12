@@ -77,7 +77,7 @@ void PylontechComponent::process_line_(std::string &buffer) {
   const int parsed = sscanf(                                                                                   // NOLINT
       buffer.c_str(), "%d %d %d %d %d %d %d %d %7s %7s %7s %7s %d%% %*d-%*d-%*d %*d:%*d:%*d %7s %7s %d %7s",   // NOLINT
       &l.bat_num, &l.volt, &l.curr, &l.tempr, &l.tlow, &l.thigh, &l.vlow, &l.vhigh, l.base_st, l.volt_st,      // NOLINT
-      l.curr_st, l.temp_st, &l.coulomb, l.bv_st, l.bt_st, &l.mostempr, l.mos_st);                              // NOLINT
+      l.curr_st, l.temp_st, &l.coulomb, l.bv_st, l.bt_st, mostempr_s, l.mos_st);                              // NOLINT
       //l.curr_st, l.temp_st, &l.ccoulomb, &l.year, &l.month, &l.day, &l.hour, &l.minute, &l.second, l.bv_st,  // NOLINT
   
   if (l.bat_num <= 0) {

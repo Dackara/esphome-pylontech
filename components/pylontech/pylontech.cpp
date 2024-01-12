@@ -73,6 +73,7 @@ void PylontechComponent::process_line_(std::string &buffer) {
   // clang-format on
 
   PylontechListener::LineContents l{};
+if (sscanf(buffer.c_str(), "pwr")) {
   char mostempr_s[6];
   const int parsed = sscanf(                                                                                   // NOLINT
       buffer.c_str(), "%d %d %d %d %d %d %d %d %7s %7s %7s %7s %d%% %*d-%*d-%*d %*d:%*d:%*d %7s %7s %5s %7s",   // NOLINT
@@ -100,7 +101,7 @@ void PylontechComponent::process_line_(std::string &buffer) {
     listener->on_line_read(&l);
   }
 }
-
+}//
 float PylontechComponent::get_setup_priority() const { return setup_priority::DATA; }
 
 }  // namespace pylontech

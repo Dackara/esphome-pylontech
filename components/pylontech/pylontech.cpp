@@ -100,8 +100,9 @@ if (sscanf(buffer.c_str(), "pwr")) {
   for (PylontechListener *listener : this->listeners_) {
     listener->on_line_read(&l);
   }
-}
-}//
+return;
+}//if sscanf pwr
+} // void
 float PylontechComponent::get_setup_priority() const { return setup_priority::DATA; }
 
 }  // namespace pylontech

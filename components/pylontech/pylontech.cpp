@@ -95,12 +95,6 @@ void PylontechComponent::process_line_(std::string &buffer) {
     l.mostempr = -300;
     ESP_LOGW(TAG, "bat_num %d: received no mostempr", l.bat_num);
   }
-  if (l.mos_st.available()) {
-    l.mos_st = l.mos_st.state();
-  } else {
-    l.mostempr = eInvalid;
-    ESP_LOGW(TAG, "bat_num %d: received no mos_st", l.bat_num);
-  }
 
   for (PylontechListener *listener : this->listeners_) {
     listener->on_line_read(&l);

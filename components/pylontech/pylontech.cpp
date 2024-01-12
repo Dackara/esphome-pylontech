@@ -96,10 +96,10 @@ void PylontechComponent::process_line_(std::string &buffer) {
     ESP_LOGW(TAG, "bat_num %d: received no mostempr", l.bat_num);
   }
   auto mos_st_parsed = parse_char<char>(mos_st_s);
-  if (mos_st_parsed.has_value()) {
-    l.mos_st = mos_st_parsed.value();
+  if (mos_st_s.has_value()) {
+    l.mos_st = mos_st.value();
   } else {
-    l.mos_st = "invalide";
+    l.mos_st = 0;
     ESP_LOGW(TAG, "bat_num %d: received no mos_st", l.bat_num);
   }
 

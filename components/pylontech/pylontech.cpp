@@ -84,7 +84,7 @@ void PylontechComponent::process_line_(std::string &buffer) {
     ESP_LOGD(TAG, "invalid bat_num in line %s", buffer.substr(0, buffer.size() - 2).c_str());
     return;
   }
-  if (parsed < 14) {
+  if (parsed < 17) {
     ESP_LOGW(TAG, "invalid line: found only %d items in %s", parsed, buffer.substr(0, buffer.size() - 2).c_str());
     return;
   }
@@ -92,8 +92,15 @@ void PylontechComponent::process_line_(std::string &buffer) {
   if (mostempr_parsed.has_value()) {
     l.mostempr = mostempr_parsed.value();
   } else {
-    //l.mostempr = -300;
+    l.mostempr = -300;
     ESP_LOGW(TAG, "bat_num %d: received no mostempr", l.bat_num);
+  }
+  auto mos_st_parsed = parse_char<char>(mos_st_s);
+  if (mos_st_parsed.has_value()) {
+    l.mos_st = mos_st_parsed.value();
+  } else {
+    l.mos_st = invalide;
+    ESP_LOGW(TAG, "bat_num %d: received no mos_st", l.bat_num);
   }
 
   for (PylontechListener *listener : this->listeners_) {

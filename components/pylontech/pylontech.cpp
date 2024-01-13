@@ -74,12 +74,11 @@ void PylontechComponent::process_line_(std::string &buffer) {
 
   PylontechListener::LineContents l{};
   char mostempr_s[6];
-  char mos_st_s[8];
-  const int parsed = sscanf(                                                                                   // NOLINT
-      buffer.c_str(), "%d %d %d %d %d %d %d %d %7s %7s %7s %7s %d%% %*d-%*d-%*d %*d:%*d:%*d %7s %7s %5s %7s",   // NOLINT
-      &l.bat_num, &l.volt, &l.curr, &l.tempr, &l.tlow, &l.thigh, &l.vlow, &l.vhigh, l.base_st, l.volt_st,      // NOLINT
-      l.curr_st, l.temp_st, &l.coulomb, l.bv_st, l.bt_st, mostempr_s, mos_st_s);                              // NOLINT
-      //l.curr_st, l.temp_st, &l.ccoulomb, &l.year, &l.month, &l.day, &l.hour, &l.minute, &l.second, l.bv_st,  // NOLINT
+  const int parsed = sscanf(                                                                                  // NOLINT
+      buffer.c_str(), "%d %d %d %d %d %d %d %d %7s %7s %7s %7s %d%% %*d-%*d-%*d %*d:%*d:%*d %7s %7s %5s %7s", // NOLINT
+      &l.bat_num, &l.volt, &l.curr, &l.tempr, &l.tlow, &l.thigh, &l.vlow, &l.vhigh, l.base_st, l.volt_st,     // NOLINT
+      l.curr_st, l.temp_st, &l.coulomb, l.bv_st, l.bt_st, mostempr_s, l.mos_st);                              // NOLINT
+      //l.curr_st, l.temp_st, &l.ccoulomb, &l.year, &l.month, &l.day, &l.hour, &l.minute, &l.second, l.bv_st, // NOLINT
   
   if (l.bat_num <= 0) {
     ESP_LOGD(TAG, "invalid bat_num in line %s", buffer.substr(0, buffer.size() - 2).c_str());
@@ -94,14 +93,8 @@ void PylontechComponent::process_line_(std::string &buffer) {
       l.mostempr = mostempr_parsed.value();
     } else {
       l.mostempr = -300;
-      ESP_LOGW(TAG, "bat_num %d: received no mostempr", l.bat_num);
-    }
-  
-    if (mos_st_s == "Normal" or "Alarm!" or "Idle" or "Absent") {
-      l.mos_st == mos_st_s;
-    } else {
       l.mos_st == "NULL";
-      ESP_LOGW(TAG, "bat_num %d: received no mos_st", l.bat_num);
+      ESP_LOGW(TAG, "bat_num %d: received no mostempr", l.bat_num);
     }
   
   for (PylontechListener *listener : this->listeners_) {

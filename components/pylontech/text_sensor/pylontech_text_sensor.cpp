@@ -21,6 +21,7 @@ void PylontechTextSensor::dump_config() {
   LOG_TEXT_SENSOR("  ", "B.V. state", this->bv_state_text_sensor_);
   LOG_TEXT_SENSOR("  ", "B.T. state", this->bt_state_text_sensor_);
   LOG_TEXT_SENSOR("  ", "MOS state", this->mos_state_text_sensor_);
+  LOG_TEXT_SENSOR("  ", "Systeme is", this->systeme_is_text_sensor_);
 }
 
 void PylontechTextSensor::on_line_read(PylontechListener::LineContents *line) {
@@ -54,6 +55,9 @@ void PylontechTextSensor::on_line_read(PylontechListener::LineContents *line) {
   }
   if (this->mos_state_text_sensor_ != nullptr) {
     this->mos_state_text_sensor_->publish_state(std::string(line->mos_st));
+  }
+  if (this->systeme_is_text_sensor_ != nullptr) {
+    this->systeme_is_text_sensor_->publish_state(std::string(line->value_systeme_is));
   }
 }
 

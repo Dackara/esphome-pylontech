@@ -98,7 +98,7 @@ void PylontechComponent::process_line_(std::string &buffer) {
     }
   
     if (mos_st_s == "Normal" or "Alarm!" or "Idle" or "Absent") {
-      l.mos_st == mos_st_s.value();
+      l.mos_st = mos_st_s();
     } else {
       l.mos_st == "NULL";
       ESP_LOGW(TAG, "bat_num %d: received no mos_st", l.bat_num);

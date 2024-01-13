@@ -97,7 +97,7 @@ void PylontechComponent::process_line_(std::string &buffer) {
       ESP_LOGW(TAG, "bat_num %d: received no mostempr", l.bat_num);
     }
   
-  auto mos_st_parsed = parse_char<char>(mos_st_s);
+  auto mos_st_parsed = parse_number<int>(mos_st_s);
     if (mos_st_s == "Normal" or "Alarm!" or "Idle" or "Absent") {
       l.mos_st = mos_st_parsed.value();
     } else {

@@ -21,7 +21,7 @@ CONF_TIME_STATE = "time_state"
 CONF_BV_STATE = "bv_state"
 CONF_BT_STATE = "bt_state"
 CONF_MOS_STATE = "mos_state"
-CONF_MOS_STATE = "value_systeme_is"
+CONF_SYSTEME_IS = "value_systeme_is"
 
 MARKERS: list[str] = [
     CONF_BASE_STATE,
@@ -32,7 +32,7 @@ MARKERS: list[str] = [
     CONF_TIME_STATE,
     CONF_BV_STATE,
     CONF_BT_STATE,
-    CONF_MOS_STATE,
+    CONF_SYSTEME_IS,
 ]
 
 CONFIG_SCHEMA = PYLONTECH_COMPONENT_SCHEMA.extend(

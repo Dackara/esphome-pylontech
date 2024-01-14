@@ -21,6 +21,7 @@ CONF_TIME_STATE = "time_state"
 CONF_BV_STATE = "bv_state"
 CONF_BT_STATE = "bt_state"
 CONF_MOS_STATE = "mos_state"
+CONF_MOS_STATE = "value_systeme_is"
 
 MARKERS: list[str] = [
     CONF_BASE_STATE,

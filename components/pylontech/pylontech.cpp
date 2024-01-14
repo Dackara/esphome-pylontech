@@ -82,7 +82,8 @@ void PylontechComponent::process_line_(std::string &buffer) {
       //l.curr_st, l.temp_st, &l.ccoulomb, &l.year, &l.month, &l.day, &l.hour, &l.minute, &l.second, l.bv_st, // NOLINT
   
   if (l.bat_num <= 0) {
-    if (sscanf(buffer.c_str(), "Power")) {
+    bool isEqual = l.bat_num == "Power";
+    if (isEqual) {
       ESP_LOGD(TAG, "String pwr OK");
     }
     else {

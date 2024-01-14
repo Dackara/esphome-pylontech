@@ -32,7 +32,7 @@ void PylontechComponent::setup() {
   }
 }
 
-//void PylontechComponent::update() { this->write_str("pwr\n"); }
+void PylontechComponent::update() { this->write_str("pwr\n"); }
 
 void PylontechComponent::loop() {
   if (this->available() > 0) {
@@ -62,9 +62,7 @@ void PylontechComponent::loop() {
   }
 }
 
-void PylontechComponent::update() {}
 void PylontechComponent::process_line_(std::string &buffer) {
-  this->write_str("pwr\n");
   ESP_LOGV(TAG, "Read from serial: %s", buffer.substr(0, buffer.size() - 2).c_str());
   // clang-format off
   // example line to parse:

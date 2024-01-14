@@ -103,7 +103,8 @@ void PylontechComponent::process_line_(std::string &buffer) {
   }
 }
 
-void PylontechComponent::process_line_(std::string str(bytes.begin(), bytes.end())) {
+//void PylontechComponent::process_line_(std::string str(bytes.begin(), bytes.end())) {
+void PylontechComponent::process_line_(std::string &str) {
         int sensorID = 0;
         float sensorTEMP = 0; 
         int intValue = 0;

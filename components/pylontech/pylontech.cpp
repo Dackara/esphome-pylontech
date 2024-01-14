@@ -102,6 +102,46 @@ void PylontechComponent::process_line_(std::string &buffer) {
     listener->on_line_read(&l);
   }
 }
+
+void PylontechComponent::process_line_(std::string str(bytes.begin(), bytes.end())) {
+        int sensorID = 0;
+        float sensorTEMP = 0; 
+        int intValue = 0;
+        int highTemp_mC;
+        int lowTemp_mC;
+        float highestVoltage;
+        float averageVoltage;
+        float lowestVoltage;
+        char stringValue[100];
+  
+        this->write_str("pwrsys\n");
+  // -pwrsys- Section
+        if (sscanf(str.c_str(), " System is %[^\r\n]", stringValue) == 1)                { id(systeme_is).publish_state(stringValue);                       return; }
+        if (sscanf(str.c_str(), " Total Num : %d", &intValue) == 1)                      { id(pwrsys_total_num).publish_state(intValue);                    return; }
+        if (sscanf(str.c_str(), " Present Num : %d", &intValue) == 1)                    { id(pwrsys_present_num).publish_state(intValue);                  return; }
+        if (sscanf(str.c_str(), " Sleep Num : %d", &intValue) == 1)                      { id(pwrsys_sleep_num).publish_state(intValue);                    return; }
+        if (sscanf(str.c_str(), " System Volt : %d mV", &intValue) == 1)                 { id(pwrsys_system_voltage).publish_state(intValue);               return; }
+        if (sscanf(str.c_str(), " System Curr : %d mA", &intValue) == 1)                 { id(pwrsys_system_current).publish_state(intValue);               return; }
+        if (sscanf(str.c_str(), " System RC : %d mAH", &intValue) == 1)                  { id(pwrsys_system_rc).publish_state(intValue);                    return; }
+        if (sscanf(str.c_str(), " System FCC : %d mAH", &intValue) == 1)                 { id(pwrsys_system_fcc).publish_state(intValue);                   return; }
+        if (sscanf(str.c_str(), " System SOC : %d %%", &intValue) == 1)                  { id(pwrsys_system_soc).publish_state(intValue);                   return; }
+        if (sscanf(str.c_str(), " System SOH : %d %%", &intValue) == 1)                  { id(pwrsys_system_soh).publish_state(intValue);                   return; }
+        if (sscanf(str.c_str(), " Highest voltage : %f", &highestVoltage) == 1)          { id(pwrsys_highest_voltage).publish_state(highestVoltage);        return; }
+        if (sscanf(str.c_str(), " Average voltage : %d mV", &intValue) == 1)             { id(pwrsys_average_voltage).publish_state(intValue);              return; }
+        if (sscanf(str.c_str(), " Lowest voltage : %f", &lowestVoltage) == 1)            { id(pwrsys_lowest_voltage).publish_state(lowestVoltage);          return; }
+        if (sscanf(str.c_str(), " Highest temperature : %d mC", &intValue) == 1)         { id(pwrsys_high_Temp).publish_state(intValue);                    return; }
+        if (sscanf(str.c_str(), " Average temperature : %d mC", &intValue) == 1)         { id(pwrsys_average_Temp).publish_state(intValue);                 return; }
+        if (sscanf(str.c_str(), " Lowest temperature : %d mC", &intValue) == 1)          { id(pwrsys_low_Temp).publish_state(intValue);                     return; }
+        if (sscanf(str.c_str(), " Recommend chg voltage : %d mV", &intValue) == 1)       { id(pwrsys_recommend_chg_voltage).publish_state(intValue);        return; }
+        if (sscanf(str.c_str(), " Recommend dsg voltage : %d mV", &intValue) == 1)       { id(pwrsys_recommend_dsg_voltage).publish_state(intValue);        return; }
+        if (sscanf(str.c_str(), " Recommend chg current : %d mA", &intValue) == 1)       { id(pwrsys_recommend_chg_current).publish_state(intValue);        return; }
+        if (sscanf(str.c_str(), " Recommend dsg current : %d mA", &intValue) == 1)       { id(pwrsys_recommend_dsg_current).publish_state(intValue);        return; }
+        if (sscanf(str.c_str(), " system Recommend chg voltage: %d mV", &intValue) == 1) { id(pwrsys_system_recommend_chg_voltage).publish_state(intValue); return; }
+        if (sscanf(str.c_str(), " system Recommend dsg voltage: %d mV", &intValue) == 1) { id(pwrsys_system_recommend_dsg_voltage).publish_state(intValue); return; }
+        if (sscanf(str.c_str(), " system Recommend chg current: %d mA", &intValue) == 1) { id(pwrsys_system_recommend_chg_current).publish_state(intValue); return; }
+        if (sscanf(str.c_str(), " system Recommend dsg current: %d mA", &intValue) == 1) { id(pwrsys_system_recommend_dsg_current).publish_state(intValue); return; }
+}
+
 float PylontechComponent::get_setup_priority() const { return setup_priority::DATA; }
 
 }  // namespace pylontech

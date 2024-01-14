@@ -83,7 +83,7 @@ void PylontechComponent::process_line_(std::string &buffer) {
   
   if (l.bat_num <= 0) {
     char* power = &l.bat_num;
-    if (strcmp( l.bat_num, "Power" ) == 0) {
+    if (strcmp( power, "Power" ) == 0) {
       ESP_LOGD(TAG, "String pwr OK");
     }
     else {

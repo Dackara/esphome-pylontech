@@ -20,7 +20,7 @@ class PylontechTextSensor : public PylontechListener, public Component {
   SUB_TEXT_SENSOR(bv_state)
   SUB_TEXT_SENSOR(bt_state)
   SUB_TEXT_SENSOR(mos_state)
-  SUB_TEXT_SENSOR(value_systeme_is)
+  SUB_TEXT_SENSOR(systeme_is)
 
   void on_line_read(LineContents *line) override;
 

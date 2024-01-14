@@ -67,7 +67,7 @@ void PylontechComponent::process_line_(std::string &buffer) {
 
   PylontechListener::LineContents l{};
   const int parsed = sscanf(                                                                                   // NOLINT
-      buffer.c_str(), "System is %s", &l.value_systeme_is);  // NOLINT
+      buffer.c_str(), "%s %s %s", &l.value_systeme_is);  // NOLINT
 
   for (PylontechListener *listener : this->listeners_) {
     listener->on_line_read(&l);

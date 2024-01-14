@@ -32,6 +32,7 @@ MARKERS: list[str] = [
     CONF_TIME_STATE,
     CONF_BV_STATE,
     CONF_BT_STATE,
+    CONF_MOS_STATE,
     CONF_SYSTEME_IS,
 ]
 

@@ -101,10 +101,10 @@ void PylontechComponent::process_line_(std::string &buffer) {
   for (PylontechListener *listener : this->listeners_) {
     listener->on_line_read(&l);
   }
-}
+//}
 
-//void PylontechComponent::process_line_(std::string str(bytes.begin(), bytes.end())) {
-void PylontechComponent::process_line_(std::string &str) {
+        std::string &str
+
         int sensorID = 0;
         float sensorTEMP = 0; 
         int intValue = 0;

@@ -32,7 +32,7 @@ void PylontechComponent::setup() {
   }
 }
 
-void PylontechComponent::update() {}// this->write_str("pwr\n"); }
+//void PylontechComponent::update() { this->write_str("pwr\n"); }
 
 void PylontechComponent::loop() {
   if (this->available() > 0) {
@@ -71,7 +71,7 @@ void PylontechComponent::process_line_(std::string &buffer) {
   // 1           50548    8910     25000     24200    25000     3368     3371      Charge     Normal     Normal     Normal     97%          2021-06-30 20:49:45      Normal   Normal   22700        Normal
   // &l.bat_num, &l.volt, &l.curr, &l.tempr, &l.tlow, &l.thigh, &l.vlow, &l.vhigh, l.base_st, l.volt_st, l.curr_st, l.temp_st, &l.capacity, l.date,    l.time,       l.bv_st, l.bt_st, &l.mostempr, l.mos_st
   // clang-format on
-  this->write_str("pwr\n");
+  void PylontechComponent::update() { this->write_str("pwr\n"); }
   PylontechListener::LineContents l{};
   char mostempr_s[6];
   const int parsed = sscanf(                                                                                  // NOLINT

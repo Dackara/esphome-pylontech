@@ -95,7 +95,7 @@ void PylontechComponent::process_line_(std::string &buffer) {
       l.mostempr = mostempr_parsed.value();
     } else {
       l.mostempr = -300;
-      l.mos_st = "NULL!!";
+      l.mos_st = "NULL!!!";
       ESP_LOGW(TAG, "bat_num %d: received no mostempr", l.bat_num);
     }
   

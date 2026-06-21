@@ -36,7 +36,7 @@ Other models may work but have not yet been fully validated.
 external_components:
   - source:
       type: git
-      url: ${GITHUB_REPOSITORY}
+      url: https://github.com/Dackara/esphome-pylontech
 ```
 
 ---

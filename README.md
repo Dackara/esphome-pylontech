@@ -136,9 +136,9 @@ Most users do not need to enable them.
 
 # Acknowledgements
 
-Special thanks to KJM whose previous ESPHome implementation served as the primary foundation and reference for this project.
+Special thanks to [KJM](https://github.com/kjm5759) whose previous ESPHome implementation served as the primary foundation and reference for this project.
 
-Additional thanks to Functionpointer for earlier work on Pylontech protocol integration and UART handling concepts.
+Additional thanks to [Functionpointer](https://github.com/functionpointer) for earlier work on Pylontech protocol integration and UART handling concepts.
 
 ---
 

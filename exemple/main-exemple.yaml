@@ -1,0 +1,54 @@
+external_components:
+  - source:
+      type: git
+      url: https://github.com/Dackara/esphome-pylontech
+      refresh: 0s
+
+uart:
+  id: pylon_uart
+  tx_pin: GPIO17
+  rx_pin: GPIO18
+  baud_rate: 115200
+  stop_bits: '1'
+  rx_buffer_size: 4096
+  
+id: pylon
+  uart_id: pylontech_uart
+  # role: master                            # `master` or `slave` >> Master by default
+  update_interval: 5s                       # `5s` by default # interval for the fast loop
+  enable_getpwr: true                       # `false` by default # automatic `getpwr` sequence in the fast loop
+  enable_info: true                         # `false` by default # automatic `info` sequence in the verry-slow loop
+  info_interval: 24h                        # `24h` by default # interval for the verry-slow loop
+  # info_startup_delay: 0s                  # `0s` by default # delay for first 'info' after the first fast loop
+  enable_stat: true                         # `false` by default # automatic `stat` sequence in the slow loop
+  enable_bat: true                          # `false` by default # automatic `bat` sequence in the slow loop
+  enable_soh: true                          # `false` by default # automatic `soh` sequence in the slow loop
+  # slow_interval: 300s                     # `300s` by default # interval for the slow loop : `stat` / `bat` / `soh`
+  publish_only_changes: true                # reduce API traffic; bypasses repeated samples used by sensor filters # `false` by default
+  # enable_login_debug_recovery: false      # send `login debug` after repeated PWR/PWRSYS failures # `false` by default
+  # login_debug_failure_threshold: 3        # consecutive fast-loop failures before recovery send function # `3` by default
+  # login_debug_recovery_interval: 24h      # minimum delay between automatic attempts # `24h` by default
+  # enable_us2000b_initialization: false    # US2000B ONLY! Requires runtime UART baud switching; incompatible with "Weikai" UART. `false` by default
+  memory_mode: auto                         # `auto` prefers PSRAM when `psram:` exists; # `psram` requires it # `internal` by default
+  
+packages:
+  pylontech_system: !include
+    file: package/device_pylontech_system.yaml
+      
+  pylontech_batteriy_1: !include
+    file: package/device_pylontech_battery.yaml
+    vars:
+      bat_number: '1'                
+  # pylontech_batteriy_2: !include
+  #   file: package/device_pylontech_battery.yaml
+  #   vars:
+  #     bat_number: '2'       
+  # pylontech_batteriy_3: !include
+  #   file: package/device_pylontech_battery.yaml
+  #   vars:
+  #     bat_number: '3'       
+  # pylontech_batteriy_4: !include
+  #   file: package/device_pylontech_battery.yaml
+  #   vars:
+  #     bat_number: '4'
+  ### [...] AND AGAIN ...

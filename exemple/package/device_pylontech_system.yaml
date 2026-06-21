@@ -1,0 +1,150 @@
+esphome:
+  devices:
+    - id: pylontech_system
+      name: Pylontech System
+
+sensor:
+  - platform: pylontech
+    pylontech_id: pylon
+
+    ### Cmd `PWRSYS`
+    total_num:
+      name: "PWRSYS Total Batteries"
+      device_id: pylontech_system
+    present_num:
+      name: "PWRSYS Present Batteries"
+      device_id: pylontech_system
+    sleep_num:
+      name: "PWRSYS Sleep Batteries"
+      device_id: pylontech_system
+    system_voltage:
+      name: "PWRSYS System Voltage"
+      device_id: pylontech_system
+    system_current:
+      name: "PWRSYS System Current"
+      device_id: pylontech_system
+    system_rc:
+      name: "PWRSYS System Remaining Capacity"
+      device_id: pylontech_system
+    system_fcc:
+      name: "PWRSYS System Full Capacity"
+      device_id: pylontech_system
+    system_soc:
+      name: "PWRSYS System SOC"
+      device_id: pylontech_system
+    system_soh:
+      name: "PWRSYS System SOH"
+      device_id: pylontech_system
+    highest_voltage:
+      name: "PWRSYS Highest Cell Voltage"
+      device_id: pylontech_system
+    average_voltage:
+      name: "PWRSYS Average Cell Voltage"
+      device_id: pylontech_system
+    lowest_voltage:
+      name: "PWRSYS Lowest Cell Voltage"
+      device_id: pylontech_system
+    highest_temperature:
+      name: "PWRSYS Highest Temperature"
+      device_id: pylontech_system
+    average_temperature:
+      name: "PWRSYS Average Temperature"
+      device_id: pylontech_system
+    lowest_temperature:
+      name: "PWRSYS Lowest Temperature"
+      device_id: pylontech_system
+    recommend_charge_voltage:
+      name: "PWRSYS Recommend Charge Voltage"
+      device_id: pylontech_system
+    recommend_discharge_voltage:
+      name: "PWRSYS Recommend Discharge Voltage"
+      device_id: pylontech_system
+    recommend_charge_current:
+      name: "PWRSYS Recommend Charge Current"
+      device_id: pylontech_system
+    recommend_discharge_current:
+      name: "PWRSYS Recommend Discharge Current"
+      device_id: pylontech_system
+
+    ### Diagnostics
+    response_time:                           # durée de la dernière commande en millisecondes.
+      name: "Pylontech Response Time"
+      device_id: pylontech_system
+    consecutive_failures:                    # utile pour détecter une liaison instable.
+      name: "Pylontech Consecutive Failures"
+      device_id: pylontech_system
+    timeout_count:                           # compteur cumulatif.
+      name: "Pylontech Timeout Count"
+      device_id: pylontech_system
+    uart_queue_high_watermark:               # occupation maximale de la file UART.
+      name: "Pylontech UART Queue High Watermark"
+      device_id: pylontech_system
+    uart_queue_full_count:                   # nombre de fois où la lecture a dû patienter parce que la file était pleine.
+      name: "Pylontech UART Queue Full Count"
+      device_id: pylontech_system
+
+text_sensor:
+  - platform: pylontech
+    pylontech_id: pylon
+    ### Cmd `PWRSYS`
+    system_status:
+      name: "PWRSYS System Status"
+      device_id: pylontech_system
+
+    ### Diagnostics
+    last_command:
+      name: "Pylontech Last Command"         # dernière commande terminée.
+      device_id: pylontech_system
+    last_error:                              # timeout, réponse incomplète, commande inconnue, file UART saturée…
+      name: "Pylontech Last Error"
+      device_id: pylontech_system
+
+    configured_role:
+      name: "Pylontech Configured Role"
+      device_id: pylontech_system
+    observed_role:
+      name: "Pylontech Observed Role"
+      device_id: pylontech_system
+    role_validation:
+      name: "Pylontech Role Validation"
+      device_id: pylontech_system
+      
+binary_sensor:
+  - platform: pylontech
+    pylontech_id: pylon
+    ### Diagnostics
+    protocol_online:
+      name: "Pylontech Protocol Online"      # batterie joignable, devient actif après la première réponse complète et passe hors ligne après trois échecs consécutifs.
+      device_id: pylontech_system
+
+switch:
+  - platform: pylontech
+    pylontech_id: pylon
+    force_slave_mode:
+      name: "Pylontech Force Slave Mode"
+      device_id: pylontech_system
+
+button:
+  - platform: pylontech
+    pylontech_id: pylon
+    request_info:
+      name: "INFO Request"
+      device_id: pylontech_system
+    request_getpwr:
+      name: "GETPWR Request"
+      device_id: pylontech_system
+    request_stat:
+      name: "STAT Request"
+      device_id: pylontech_system
+    request_bat:
+      name: "BAT Request"
+      device_id: pylontech_system
+    request_soh:
+      name: "SOH Request"
+      device_id: pylontech_system
+    login_debug:
+      name: "Pylontech Login Debug"
+      device_id: pylontech_system
+    initialize_us2000b:
+      name: "Pylontech Initialize US2000B" # US2000B ONLY! Changes UART to 1200 baud temporarily
+      device_id: pylontech_system

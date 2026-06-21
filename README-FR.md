@@ -132,9 +132,9 @@ La majorité des utilisateurs n'en auront pas besoin.
 
 # Remerciements
 
-Un immense merci à KJM dont l'ancienne implémentation "Custom" ESPHome et son récent composant, a servi de base de travail et de référence principale pour ce projet.
+Un immense merci à [KJM](https://github.com/kjm5759) dont l'ancienne implémentation "Custom" ESPHome et son récent composant, a servi de base de travail et de référence principale pour ce projet.
 
-Merci également à Functionalpointer pour ses travaux autour du protocole Pylontech et de sa gestion UART.
+Merci également à [Functionpointer](https://github.com/functionpointer) pour ses travaux autour du protocole Pylontech et de sa gestion UART.
 
 ---
 

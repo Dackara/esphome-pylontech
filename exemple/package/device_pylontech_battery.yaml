@@ -1,0 +1,732 @@
+esphome:
+  devices:
+    - id: pylontech_battery_${bat_number}
+      name: Pylontech Battery ${bat_number}
+
+sensor:
+  - platform: pylontech
+    pylontech_id: pylon
+    battery: ${bat_number}
+    ### Cmd `PWR`
+    voltage:
+      name: "PWR Battery ${bat_number} Voltage"
+      device_id: pylontech_battery_${bat_number}
+    current:
+      name: "PWR Battery ${bat_number} Current"
+      device_id: pylontech_battery_${bat_number}
+    temperature:
+      name: "PWR Battery ${bat_number} Temperature"
+      device_id: pylontech_battery_${bat_number}
+    coulomb:
+      name: "PWR Battery ${bat_number} Coulomb"
+      device_id: pylontech_battery_${bat_number}
+    # Only if Master :
+    cell_voltage_low:
+      name: "PWR Master Battery ${bat_number} Cell Low"
+      device_id: pylontech_battery_${bat_number}
+    cell_voltage_high:
+      name: "PWR Master Battery ${bat_number} Cell High"
+      device_id: pylontech_battery_${bat_number}
+    temperature_low:
+      name: "PWR Master Battery ${bat_number} Temperature Low"
+      device_id: pylontech_battery_${bat_number}
+    temperature_high:
+      name: "PWR Master Battery ${bat_number} Temperature High"
+      device_id: pylontech_battery_${bat_number}
+    mos_temperature:
+      name: "PWR Master Battery ${bat_number} MOS Temperature"
+      device_id: pylontech_battery_${bat_number}
+    # Only if Slave :
+    total_coulomb:
+      name: "PWR Slave Battery ${bat_number} Total Coulomb"
+      device_id: pylontech_battery_${bat_number}
+    max_voltage:
+      name: "PWR Slave Battery ${bat_number} Max Voltage"
+      device_id: pylontech_battery_${bat_number}
+    charge_times:
+      name: "PWR Slave Battery ${bat_number} Charge Times"
+      device_id: pylontech_battery_${bat_number}
+    discharge_sec:
+      name: "PWR Slave Battery ${bat_number} Discharge Seconds"
+      device_id: pylontech_battery_${bat_number}
+    charge_sec:
+      name: "PWR Slave Battery ${bat_number} Charge Seconds"
+      device_id: pylontech_battery_${bat_number}
+    ### Cmd `INFO`
+    device_address:
+      name: "INFO Battery ${bat_number} Device Address"
+      device_id: pylontech_battery_${bat_number}
+    cell_number:
+      name: "INFO Battery ${bat_number} Cell Number"
+      device_id: pylontech_battery_${bat_number}
+    max_charge_current:
+      name: "INFO Battery ${bat_number} Max Charge Current"
+      device_id: pylontech_battery_${bat_number}
+    max_discharge_current:
+      name: "INFO Battery ${bat_number} Max Discharge Current"
+      device_id: pylontech_battery_${bat_number}
+    ### Cmd `GETPWR`
+    getpwr_voltage:
+      name: "GETPWR Battery ${bat_number} Voltage"
+      device_id: pylontech_battery_${bat_number}
+    getpwr_current:
+      name: "GETPWR Battery ${bat_number} Current"
+      device_id: pylontech_battery_${bat_number}
+    getpwr_temperature:
+      name: "GETPWR Battery ${bat_number} Temperature"
+      device_id: pylontech_battery_${bat_number}
+    getpwr_residual_capacity:
+      name: "GETPWR Battery ${bat_number} Residual Capacity"
+      device_id: pylontech_battery_${bat_number}
+    cell_voltages:
+      - name: "GETPWR Battery ${bat_number} Cell 01 Voltage"
+        device_id: pylontech_battery_${bat_number}
+      - name: "GETPWR Battery ${bat_number} Cell 02 Voltage"
+        device_id: pylontech_battery_${bat_number}
+      - name: "GETPWR Battery ${bat_number} Cell 03 Voltage"
+        device_id: pylontech_battery_${bat_number}
+      - name: "GETPWR Battery ${bat_number} Cell 04 Voltage"
+        device_id: pylontech_battery_${bat_number}
+      - name: "GETPWR Battery ${bat_number} Cell 05 Voltage"
+        device_id: pylontech_battery_${bat_number}
+      - name: "GETPWR Battery ${bat_number} Cell 06 Voltage"
+        device_id: pylontech_battery_${bat_number}
+      - name: "GETPWR Battery ${bat_number} Cell 07 Voltage"
+        device_id: pylontech_battery_${bat_number}
+      - name: "GETPWR Battery ${bat_number} Cell 08 Voltage"
+        device_id: pylontech_battery_${bat_number}
+      - name: "GETPWR Battery ${bat_number} Cell 09 Voltage"
+        device_id: pylontech_battery_${bat_number}
+      - name: "GETPWR Battery ${bat_number} Cell 10 Voltage"
+        device_id: pylontech_battery_${bat_number}
+      - name: "GETPWR Battery ${bat_number} Cell 11 Voltage"
+        device_id: pylontech_battery_${bat_number}
+      - name: "GETPWR Battery ${bat_number} Cell 12 Voltage"
+        device_id: pylontech_battery_${bat_number}
+      - name: "GETPWR Battery ${bat_number} Cell 13 Voltage"
+        device_id: pylontech_battery_${bat_number}
+      - name: "GETPWR Battery ${bat_number} Cell 14 Voltage"
+        device_id: pylontech_battery_${bat_number}
+      - name: "GETPWR Battery ${bat_number} Cell 15 Voltage"
+        device_id: pylontech_battery_${bat_number}
+    cell_temperatures:
+      - name: "GETPWR Battery ${bat_number} Cell 01 Temperature"
+        device_id: pylontech_battery_${bat_number}
+      - name: "GETPWR Battery ${bat_number} Cell 02 Temperature"
+        device_id: pylontech_battery_${bat_number}
+      - name: "GETPWR Battery ${bat_number} Cell 03 Temperature"
+        device_id: pylontech_battery_${bat_number}
+      - name: "GETPWR Battery ${bat_number} Cell 04 Temperature"
+        device_id: pylontech_battery_${bat_number}
+      - name: "GETPWR Battery ${bat_number} Cell 05 Temperature"
+        device_id: pylontech_battery_${bat_number}
+      - name: "GETPWR Battery ${bat_number} Cell 06 Temperature"
+        device_id: pylontech_battery_${bat_number}
+      - name: "GETPWR Battery ${bat_number} Cell 07 Temperature"
+        device_id: pylontech_battery_${bat_number}
+      - name: "GETPWR Battery ${bat_number} Cell 08 Temperature"
+        device_id: pylontech_battery_${bat_number}
+      - name: "GETPWR Battery ${bat_number} Cell 09 Temperature"
+        device_id: pylontech_battery_${bat_number}
+      - name: "GETPWR Battery ${bat_number} Cell 10 Temperature"
+        device_id: pylontech_battery_${bat_number}
+      - name: "GETPWR Battery ${bat_number} Cell 11 Temperature"
+        device_id: pylontech_battery_${bat_number}
+      - name: "GETPWR Battery ${bat_number} Cell 12 Temperature"
+        device_id: pylontech_battery_${bat_number}
+      - name: "GETPWR Battery ${bat_number} Cell 13 Temperature"
+        device_id: pylontech_battery_${bat_number}
+      - name: "GETPWR Battery ${bat_number} Cell 14 Temperature"
+        device_id: pylontech_battery_${bat_number}
+      - name: "GETPWR Battery ${bat_number} Cell 15 Temperature"
+        device_id: pylontech_battery_${bat_number}
+    getpwr_residual_ma:
+      name: "GETPWR Battery ${bat_number} Residual mA"
+      device_id: pylontech_battery_${bat_number}
+    getpwr_tail_1:
+      name: "GETPWR Battery ${bat_number} Unknown"
+      device_id: pylontech_battery_${bat_number}
+    getpwr_tail_2:
+      name: "GETPWR Battery ${bat_number} Unknown 2"
+      device_id: pylontech_battery_${bat_number}
+    getpwr_cell_voltage_delta:
+      name: "GETPWR Battery ${bat_number} Cell Voltage Delta"
+      device_id: pylontech_battery_${bat_number}
+    ### Cmd `STAT`
+    stat_device_address:
+      id: pylontech_bat${bat_number}_stat_device_address
+      name: "STAT Battery ${bat_number} stat_device_address"
+      device_id: pylontech_battery_${bat_number}
+    stat_data_items:
+      id: pylontech_bat${bat_number}_stat_data_items
+      name: "STAT Battery ${bat_number} stat_data_items"
+      device_id: pylontech_battery_${bat_number}
+    stat_hisdata_items:
+      id: pylontech_bat${bat_number}_stat_hisdata_items
+      name: "STAT Battery ${bat_number} stat_hisdata_items"
+      device_id: pylontech_battery_${bat_number}
+    stat_miscdata_items:
+      name: "STAT Battery ${bat_number} Misc Data Items"
+      device_id: pylontech_battery_${bat_number}
+    stat_charge_count:
+      id: pylontech_bat${bat_number}_stat_charge_count
+      name: "STAT Battery ${bat_number} stat_charge_count"
+      device_id: pylontech_battery_${bat_number}
+    stat_discharge_count:
+      id: pylontech_bat${bat_number}_stat_discharge_count
+      name: "STAT Battery ${bat_number} stat_discharge_count"
+      device_id: pylontech_battery_${bat_number}
+    stat_charge_times:
+      id: pylontech_bat${bat_number}_stat_charge_times
+      name: "STAT Battery ${bat_number} stat_charge_times"
+      device_id: pylontech_battery_${bat_number}
+    stat_status_count:
+      id: pylontech_bat${bat_number}_stat_status_count
+      name: "STAT Battery ${bat_number} stat_status_count"
+      device_id: pylontech_battery_${bat_number}
+    stat_idle_times:
+      id: pylontech_bat${bat_number}_stat_idle_times
+      name: "STAT Battery ${bat_number} stat_idle_times"
+      device_id: pylontech_battery_${bat_number}
+    stat_coc_times:
+      id: pylontech_bat${bat_number}_stat_coc_times
+      name: "STAT Battery ${bat_number} stat_coc_times"
+      device_id: pylontech_battery_${bat_number}
+    stat_coc2_times:
+      id: pylontech_bat${bat_number}_stat_coc2_times
+      name: "STAT Battery ${bat_number} stat_coc2_times"
+      device_id: pylontech_battery_${bat_number}
+    stat_doc_times:
+      id: pylontech_bat${bat_number}_stat_doc_times
+      name: "STAT Battery ${bat_number} stat_doc_times"
+      device_id: pylontech_battery_${bat_number}
+    stat_doc2_times:
+      id: pylontech_bat${bat_number}_stat_doc2_times
+      name: "STAT Battery ${bat_number} stat_doc2_times"
+      device_id: pylontech_battery_${bat_number}
+    stat_coca_times:
+      id: pylontech_bat${bat_number}_stat_coca_times
+      name: "STAT Battery ${bat_number} stat_coca_times"
+      device_id: pylontech_battery_${bat_number}
+    stat_doca_times:
+      id: pylontech_bat${bat_number}_stat_doca_times
+      name: "STAT Battery ${bat_number} stat_doca_times"
+      device_id: pylontech_battery_${bat_number}
+    stat_sc_times:
+      id: pylontech_bat${bat_number}_stat_sc_times
+      name: "STAT Battery ${bat_number} stat_sc_times"
+      device_id: pylontech_battery_${bat_number}
+    stat_bat_ov_times:
+      id: pylontech_bat${bat_number}_stat_bat_ov_times
+      name: "STAT Battery ${bat_number} stat_bat_ov_times"
+      device_id: pylontech_battery_${bat_number}
+    stat_bat_hv_times:
+      id: pylontech_bat${bat_number}_stat_bat_hv_times
+      name: "STAT Battery ${bat_number} stat_bat_hv_times"
+      device_id: pylontech_battery_${bat_number}
+    stat_bat_lv_times:
+      id: pylontech_bat${bat_number}_stat_bat_lv_times
+      name: "STAT Battery ${bat_number} stat_bat_lv_times"
+      device_id: pylontech_battery_${bat_number}
+    stat_bat_uv_times:
+      id: pylontech_bat${bat_number}_stat_bat_uv_times
+      name: "STAT Battery ${bat_number} stat_bat_uv_times"
+      device_id: pylontech_battery_${bat_number}
+    stat_bat_slp_times:
+      id: pylontech_bat${bat_number}_stat_bat_slp_times
+      name: "STAT Battery ${bat_number} stat_bat_slp_times"
+      device_id: pylontech_battery_${bat_number}
+    stat_pwr_ov_times:
+      id: pylontech_bat${bat_number}_stat_pwr_ov_times
+      name: "STAT Battery ${bat_number} stat_pwr_ov_times"
+      device_id: pylontech_battery_${bat_number}
+    stat_pwr_hv_times:
+      id: pylontech_bat${bat_number}_stat_pwr_hv_times
+      name: "STAT Battery ${bat_number} stat_pwr_hv_times"
+      device_id: pylontech_battery_${bat_number}
+    stat_pwr_lv_times:
+      id: pylontech_bat${bat_number}_stat_pwr_lv_times
+      name: "STAT Battery ${bat_number} stat_pwr_lv_times"
+      device_id: pylontech_battery_${bat_number}
+    stat_pwr_uv_times:
+      id: pylontech_bat${bat_number}_stat_pwr_uv_times
+      name: "STAT Battery ${bat_number} stat_pwr_uv_times"
+      device_id: pylontech_battery_${bat_number}
+    stat_pwr_slp_times:
+      id: pylontech_bat${bat_number}_stat_pwr_slp_times
+      name: "STAT Battery ${bat_number} stat_pwr_slp_times"
+      device_id: pylontech_battery_${bat_number}
+    stat_cot_times:
+      id: pylontech_bat${bat_number}_stat_cot_times
+      name: "STAT Battery ${bat_number} stat_cot_times"
+      device_id: pylontech_battery_${bat_number}
+    stat_cut_times:
+      id: pylontech_bat${bat_number}_stat_cut_times
+      name: "STAT Battery ${bat_number} stat_cut_times"
+      device_id: pylontech_battery_${bat_number}
+    stat_dot_times:
+      id: pylontech_bat${bat_number}_stat_dot_times
+      name: "STAT Battery ${bat_number} stat_dot_times"
+      device_id: pylontech_battery_${bat_number}
+    stat_dut_times:
+      id: pylontech_bat${bat_number}_stat_dut_times
+      name: "STAT Battery ${bat_number} stat_dut_times"
+      device_id: pylontech_battery_${bat_number}
+    stat_cht_times:
+      id: pylontech_bat${bat_number}_stat_cht_times
+      name: "STAT Battery ${bat_number} stat_cht_times"
+      device_id: pylontech_battery_${bat_number}
+    stat_clt_times:
+      id: pylontech_bat${bat_number}_stat_clt_times
+      name: "STAT Battery ${bat_number} stat_clt_times"
+      device_id: pylontech_battery_${bat_number}
+    stat_dht_times:
+      id: pylontech_bat${bat_number}_stat_dht_times
+      name: "STAT Battery ${bat_number} stat_dht_times"
+      device_id: pylontech_battery_${bat_number}
+    stat_dlt_times:
+      id: pylontech_bat${bat_number}_stat_dlt_times
+      name: "STAT Battery ${bat_number} stat_dlt_times"
+      device_id: pylontech_battery_${bat_number}
+    stat_shut_times:
+      id: pylontech_bat${bat_number}_stat_shut_times
+      name: "STAT Battery ${bat_number} stat_shut_times"
+      device_id: pylontech_battery_${bat_number}
+    stat_reset_times:
+      id: pylontech_bat${bat_number}_stat_reset_times
+      name: "STAT Battery ${bat_number} stat_reset_times"
+      device_id: pylontech_battery_${bat_number}
+    stat_rv_times:
+      id: pylontech_bat${bat_number}_stat_rv_times
+      name: "STAT Battery ${bat_number} stat_rv_times"
+      device_id: pylontech_battery_${bat_number}
+    stat_input_ov_times:
+      id: pylontech_bat${bat_number}_stat_input_ov_times
+      name: "STAT Battery ${bat_number} stat_input_ov_times"
+      device_id: pylontech_battery_${bat_number}
+    stat_soh_times:
+      id: pylontech_bat${bat_number}_stat_soh_times
+      name: "STAT Battery ${bat_number} stat_soh_times"
+      device_id: pylontech_battery_${bat_number}
+    stat_bmicerr_times:
+      id: pylontech_bat${bat_number}_stat_bmicerr_times
+      name: "STAT Battery ${bat_number} stat_bmicerr_times"
+      device_id: pylontech_battery_${bat_number}
+    stat_cycle_times:
+      id: pylontech_bat${bat_number}_stat_cycle_times
+      name: "STAT Battery ${bat_number} stat_cycle_times"
+      device_id: pylontech_battery_${bat_number}
+    stat_cycle_count:
+      id: pylontech_bat${bat_number}_stat_cycle_count
+      name: "STAT Battery ${bat_number} stat_cycle_count"
+      device_id: pylontech_battery_${bat_number}
+    stat_soh:
+      id: pylontech_bat${bat_number}_stat_soh
+      name: "STAT Battery ${bat_number} stat_soh"
+      device_id: pylontech_battery_${bat_number}
+    stat_pwr_percent:
+      id: pylontech_bat${bat_number}_stat_pwr_percent
+      name: "STAT Battery ${bat_number} stat_pwr_percent"
+      device_id: pylontech_battery_${bat_number}
+    stat_pwr_coulomb:
+      id: pylontech_bat${bat_number}_stat_pwr_coulomb
+      name: "STAT Battery ${bat_number} stat_pwr_coulomb"
+      device_id: pylontech_battery_${bat_number}
+    stat_coulomb:
+      id: pylontech_bat${bat_number}_stat_coulomb
+      name: "STAT Battery ${bat_number} stat_coulomb"
+      device_id: pylontech_battery_${bat_number}
+    stat_dsg_cap:
+      id: pylontech_bat${bat_number}_stat_dsg_cap
+      name: "STAT Battery ${bat_number} stat_dsg_cap"
+      device_id: pylontech_battery_${bat_number}
+    stat_ht_half_c_count:
+      id: pylontech_bat${bat_number}_stat_ht_half_c_count
+      name: "STAT Battery ${bat_number} stat_ht_half_c_count"
+      device_id: pylontech_battery_${bat_number}
+    stat_lt_half_c_count:
+      id: pylontech_bat${bat_number}_stat_lt_half_c_count
+      name: "STAT Battery ${bat_number} stat_lt_half_c_count"
+      device_id: pylontech_battery_${bat_number}
+    stat_ht_count:
+      id: pylontech_bat${bat_number}_stat_ht_count
+      name: "STAT Battery ${bat_number} stat_ht_count"
+      device_id: pylontech_battery_${bat_number}
+    stat_lt_count:
+      id: pylontech_bat${bat_number}_stat_lt_count
+      name: "STAT Battery ${bat_number} stat_lt_count"
+      device_id: pylontech_battery_${bat_number}
+    stat_lv_count:
+      id: pylontech_bat${bat_number}_stat_lv_count
+      name: "STAT Battery ${bat_number} stat_lv_count"
+      device_id: pylontech_battery_${bat_number}
+    stat_lifewarn_times:
+      id: pylontech_bat${bat_number}_stat_lifewarn_times
+      name: "STAT Battery ${bat_number} stat_lifewarn_times"
+      device_id: pylontech_battery_${bat_number}
+    stat_lifealarm_times:
+      id: pylontech_bat${bat_number}_stat_lifealarm_times
+      name: "STAT Battery ${bat_number} stat_lifealarm_times"
+      device_id: pylontech_battery_${bat_number}
+    ### Cmd `BAT`
+    bat_cell_currents:
+      - name: "BAT Battery ${bat_number} Cell 01 Current"
+        device_id: pylontech_battery_${bat_number}
+      - name: "BAT Battery ${bat_number} Cell 02 Current"
+        device_id: pylontech_battery_${bat_number}
+      - name: "BAT Battery ${bat_number} Cell 03 Current"
+        device_id: pylontech_battery_${bat_number}
+      - name: "BAT Battery ${bat_number} Cell 04 Current"
+        device_id: pylontech_battery_${bat_number}
+      - name: "BAT Battery ${bat_number} Cell 05 Current"
+        device_id: pylontech_battery_${bat_number}
+      - name: "BAT Battery ${bat_number} Cell 06 Current"
+        device_id: pylontech_battery_${bat_number}
+      - name: "BAT Battery ${bat_number} Cell 07 Current"
+        device_id: pylontech_battery_${bat_number}
+      - name: "BAT Battery ${bat_number} Cell 08 Current"
+        device_id: pylontech_battery_${bat_number}
+      - name: "BAT Battery ${bat_number} Cell 09 Current"
+        device_id: pylontech_battery_${bat_number}
+      - name: "BAT Battery ${bat_number} Cell 10 Current"
+        device_id: pylontech_battery_${bat_number}
+      - name: "BAT Battery ${bat_number} Cell 11 Current"
+        device_id: pylontech_battery_${bat_number}
+      - name: "BAT Battery ${bat_number} Cell 12 Current"
+        device_id: pylontech_battery_${bat_number}
+      - name: "BAT Battery ${bat_number} Cell 13 Current"
+        device_id: pylontech_battery_${bat_number}
+      - name: "BAT Battery ${bat_number} Cell 14 Current"
+        device_id: pylontech_battery_${bat_number}
+      - name: "BAT Battery ${bat_number} Cell 15 Current"
+        device_id: pylontech_battery_${bat_number}
+    bat_cell_socs:
+      - name: "BAT Battery ${bat_number} Cell 01 SOC"
+        device_id: pylontech_battery_${bat_number}
+      - name: "BAT Battery ${bat_number} Cell 02 SOC"
+        device_id: pylontech_battery_${bat_number}
+      - name: "BAT Battery ${bat_number} Cell 03 SOC"
+        device_id: pylontech_battery_${bat_number}
+      - name: "BAT Battery ${bat_number} Cell 04 SOC"
+        device_id: pylontech_battery_${bat_number}
+      - name: "BAT Battery ${bat_number} Cell 05 SOC"
+        device_id: pylontech_battery_${bat_number}
+      - name: "BAT Battery ${bat_number} Cell 06 SOC"
+        device_id: pylontech_battery_${bat_number}
+      - name: "BAT Battery ${bat_number} Cell 07 SOC"
+        device_id: pylontech_battery_${bat_number}
+      - name: "BAT Battery ${bat_number} Cell 08 SOC"
+        device_id: pylontech_battery_${bat_number}
+      - name: "BAT Battery ${bat_number} Cell 09 SOC"
+        device_id: pylontech_battery_${bat_number}
+      - name: "BAT Battery ${bat_number} Cell 10 SOC"
+        device_id: pylontech_battery_${bat_number}
+      - name: "BAT Battery ${bat_number} Cell 11 SOC"
+        device_id: pylontech_battery_${bat_number}
+      - name: "BAT Battery ${bat_number} Cell 12 SOC"
+        device_id: pylontech_battery_${bat_number}
+      - name: "BAT Battery ${bat_number} Cell 13 SOC"
+        device_id: pylontech_battery_${bat_number}
+      - name: "BAT Battery ${bat_number} Cell 14 SOC"
+        device_id: pylontech_battery_${bat_number}
+      - name: "BAT Battery ${bat_number} Cell 15 SOC"
+        device_id: pylontech_battery_${bat_number}
+    bat_cell_coulombs:
+      - name: "BAT Battery ${bat_number} Cell 01 Coulomb mAh"
+        device_id: pylontech_battery_${bat_number}
+      - name: "BAT Battery ${bat_number} Cell 02 Coulomb mAh"
+        device_id: pylontech_battery_${bat_number}
+      - name: "BAT Battery ${bat_number} Cell 03 Coulomb mAh"
+        device_id: pylontech_battery_${bat_number}
+      - name: "BAT Battery ${bat_number} Cell 04 Coulomb mAh"
+        device_id: pylontech_battery_${bat_number}
+      - name: "BAT Battery ${bat_number} Cell 05 Coulomb mAh"
+        device_id: pylontech_battery_${bat_number}
+      - name: "BAT Battery ${bat_number} Cell 06 Coulomb mAh"
+        device_id: pylontech_battery_${bat_number}
+      - name: "BAT Battery ${bat_number} Cell 07 Coulomb mAh"
+        device_id: pylontech_battery_${bat_number}
+      - name: "BAT Battery ${bat_number} Cell 08 Coulomb mAh"
+        device_id: pylontech_battery_${bat_number}
+      - name: "BAT Battery ${bat_number} Cell 09 Coulomb mAh"
+        device_id: pylontech_battery_${bat_number}
+      - name: "BAT Battery ${bat_number} Cell 10 Coulomb mAh"
+        device_id: pylontech_battery_${bat_number}
+      - name: "BAT Battery ${bat_number} Cell 11 Coulomb mAh"
+        device_id: pylontech_battery_${bat_number}
+      - name: "BAT Battery ${bat_number} Cell 12 Coulomb mAh"
+        device_id: pylontech_battery_${bat_number}
+      - name: "BAT Battery ${bat_number} Cell 13 Coulomb mAh"
+        device_id: pylontech_battery_${bat_number}
+      - name: "BAT Battery ${bat_number} Cell 14 Coulomb mAh"
+        device_id: pylontech_battery_${bat_number}
+      - name: "BAT Battery ${bat_number} Cell 15 Coulomb mAh"
+        device_id: pylontech_battery_${bat_number}
+    bat_cell_current_delta:
+      name: "BAT Battery ${bat_number} Cell Current Delta"
+      device_id: pylontech_battery_${bat_number}
+    ### Cmd `SOH`
+    soh_cell_counts:
+      - name: "SOH Battery ${bat_number} Cell 01 Count"
+        device_id: pylontech_battery_${bat_number}
+      - name: "SOH Battery ${bat_number} Cell 02 Count"
+        device_id: pylontech_battery_${bat_number}
+      - name: "SOH Battery ${bat_number} Cell 03 Count"
+        device_id: pylontech_battery_${bat_number}
+      - name: "SOH Battery ${bat_number} Cell 04 Count"
+        device_id: pylontech_battery_${bat_number}
+      - name: "SOH Battery ${bat_number} Cell 05 Count"
+        device_id: pylontech_battery_${bat_number}
+      - name: "SOH Battery ${bat_number} Cell 06 Count"
+        device_id: pylontech_battery_${bat_number}
+      - name: "SOH Battery ${bat_number} Cell 07 Count"
+        device_id: pylontech_battery_${bat_number}
+      - name: "SOH Battery ${bat_number} Cell 08 Count"
+        device_id: pylontech_battery_${bat_number}
+      - name: "SOH Battery ${bat_number} Cell 09 Count"
+        device_id: pylontech_battery_${bat_number}
+      - name: "SOH Battery ${bat_number} Cell 10 Count"
+        device_id: pylontech_battery_${bat_number}
+      - name: "SOH Battery ${bat_number} Cell 11 Count"
+        device_id: pylontech_battery_${bat_number}
+      - name: "SOH Battery ${bat_number} Cell 12 Count"
+        device_id: pylontech_battery_${bat_number}
+      - name: "SOH Battery ${bat_number} Cell 13 Count"
+        device_id: pylontech_battery_${bat_number}
+      - name: "SOH Battery ${bat_number} Cell 14 Count"
+        device_id: pylontech_battery_${bat_number}
+      - name: "SOH Battery ${bat_number} Cell 15 Count"
+        device_id: pylontech_battery_${bat_number}
+
+text_sensor:
+  - platform: pylontech
+    pylontech_id: pylon
+    battery: ${bat_number}
+    ### Cmd `PWR`
+    base_state:
+      name: "PWR Battery ${bat_number} Base State"
+      device_id: pylontech_battery_${bat_number}
+    voltage_state:
+      name: "PWR Battery ${bat_number} Voltage State"
+      device_id: pylontech_battery_${bat_number}
+    current_state:
+      name: "PWR Battery ${bat_number} Current State"
+      device_id: pylontech_battery_${bat_number}
+    temperature_state:
+      name: "PWR Battery ${bat_number} Temperature State"
+      device_id: pylontech_battery_${bat_number}
+    # Only if Master ???
+    battery_voltage_state:
+      name: "PWR Master Battery ${bat_number} Battery Voltage State"
+      device_id: pylontech_battery_${bat_number}
+    battery_temperature_state:
+      name: "PWR Master Battery ${bat_number} Battery Temperature State"
+      device_id: pylontech_battery_${bat_number}
+    mos_state:
+      name: "PWR Master Battery ${bat_number} MOS State"
+      device_id: pylontech_battery_${bat_number}
+    # Only if Slave
+    coulomb_state:
+      name: "PWR Slave Battery ${bat_number} Coulomb State"
+      device_id: pylontech_battery_${bat_number}
+    soh_state:
+      name: "PWR Slave Battery ${bat_number} SOH State"
+      device_id: pylontech_battery_${bat_number}
+    heater_state:
+      name: "PWR Slave Battery ${bat_number} Heater State"
+      device_id: pylontech_battery_${bat_number}
+    protect_ena:
+      name: "PWR Slave Battery ${bat_number} Protect Enabled"
+      device_id: pylontech_battery_${bat_number}
+    bat_events:
+      name: "PWR Slave Battery ${bat_number} Battery Events"
+      device_id: pylontech_battery_${bat_number}
+    power_events:
+      name: "PWR Slave Battery ${bat_number} Power Events"
+      device_id: pylontech_battery_${bat_number}
+    system_fault:
+      name: "PWR Slave Battery ${bat_number} System Fault"
+      device_id: pylontech_battery_${bat_number}
+    ### Cmd `INFO`
+    # info_response:
+    #   name: "INFO Battery ${bat_number} Response"
+    #   device_id: pylontech_system
+    manufacturer:
+      name: "INFO Battery ${bat_number} Manufacturer"
+      device_id: pylontech_battery_${bat_number}
+    device_name:
+      name: "INFO Battery ${bat_number} Device Name"
+      device_id: pylontech_battery_${bat_number}
+    board:              # Not returned by every firmware version
+      name: "INFO Battery ${bat_number} Board"
+      device_id: pylontech_battery_${bat_number}
+    board_version:
+      name: "INFO Battery ${bat_number} Board Version"
+      device_id: pylontech_battery_${bat_number}
+    main_soft_version:
+      name: "INFO Battery ${bat_number} Main Software Version"
+      device_id: pylontech_battery_${bat_number}
+    soft_version:
+      name: "INFO Battery ${bat_number} Software Version"
+      device_id: pylontech_battery_${bat_number}
+    boot_version:
+      name: "INFO Battery ${bat_number} Boot Version"
+      device_id: pylontech_battery_${bat_number}
+    comm_version:
+      name: "INFO Battery ${bat_number} Comm Version"
+      device_id: pylontech_battery_${bat_number}
+    release_date:
+      name: "INFO Battery ${bat_number} Release Date"
+      device_id: pylontech_battery_${bat_number}
+    barcode:
+      name: "INFO Battery ${bat_number} Barcode"
+      device_id: pylontech_battery_${bat_number}
+    specification:
+      name: "INFO Battery ${bat_number} Specification"
+      device_id: pylontech_battery_${bat_number}
+    epon_port_rate:
+      name: "INFO Battery ${bat_number} EPON Port Rate"
+      device_id: pylontech_battery_${bat_number}
+    console_port_rate:
+      name: "INFO Battery ${bat_number} Console Port Rate"
+      device_id: pylontech_battery_${bat_number}
+    ### Cmd `GETPWR`
+    # getpwr_response:
+    #   name: "GETPWR Battery ${bat_number} Response"
+    #   device_id: pylontech_system
+    cell_voltage_states:
+      - name: "GETPWR Battery ${bat_number} Cell 01 Voltage State"
+        device_id: pylontech_battery_${bat_number}
+      - name: "GETPWR Battery ${bat_number} Cell 02 Voltage State"
+        device_id: pylontech_battery_${bat_number}
+      - name: "GETPWR Battery ${bat_number} Cell 03 Voltage State"
+        device_id: pylontech_battery_${bat_number}
+      - name: "GETPWR Battery ${bat_number} Cell 04 Voltage State"
+        device_id: pylontech_battery_${bat_number}
+      - name: "GETPWR Battery ${bat_number} Cell 05 Voltage State"
+        device_id: pylontech_battery_${bat_number}
+      - name: "GETPWR Battery ${bat_number} Cell 06 Voltage State"
+        device_id: pylontech_battery_${bat_number}
+      - name: "GETPWR Battery ${bat_number} Cell 07 Voltage State"
+        device_id: pylontech_battery_${bat_number}
+      - name: "GETPWR Battery ${bat_number} Cell 08 Voltage State"
+        device_id: pylontech_battery_${bat_number}
+      - name: "GETPWR Battery ${bat_number} Cell 09 Voltage State"
+        device_id: pylontech_battery_${bat_number}
+      - name: "GETPWR Battery ${bat_number} Cell 10 Voltage State"
+        device_id: pylontech_battery_${bat_number}
+      - name: "GETPWR Battery ${bat_number} Cell 11 Voltage State"
+        device_id: pylontech_battery_${bat_number}
+      - name: "GETPWR Battery ${bat_number} Cell 12 Voltage State"
+        device_id: pylontech_battery_${bat_number}
+      - name: "GETPWR Battery ${bat_number} Cell 13 Voltage State"
+        device_id: pylontech_battery_${bat_number}
+      - name: "GETPWR Battery ${bat_number} Cell 14 Voltage State"
+        device_id: pylontech_battery_${bat_number}
+      - name: "GETPWR Battery ${bat_number} Cell 15 Voltage State"
+        device_id: pylontech_battery_${bat_number}
+    cell_temperature_states:
+      - name: "GETPWR Battery ${bat_number} Cell 01 Temperature State"
+        device_id: pylontech_battery_${bat_number}
+      - name: "GETPWR Battery ${bat_number} Cell 02 Temperature State"
+        device_id: pylontech_battery_${bat_number}
+      - name: "GETPWR Battery ${bat_number} Cell 03 Temperature State"
+        device_id: pylontech_battery_${bat_number}
+      - name: "GETPWR Battery ${bat_number} Cell 04 Temperature State"
+        device_id: pylontech_battery_${bat_number}
+      - name: "GETPWR Battery ${bat_number} Cell 05 Temperature State"
+        device_id: pylontech_battery_${bat_number}
+      - name: "GETPWR Battery ${bat_number} Cell 06 Temperature State"
+        device_id: pylontech_battery_${bat_number}
+      - name: "GETPWR Battery ${bat_number} Cell 07 Temperature State"
+        device_id: pylontech_battery_${bat_number}
+      - name: "GETPWR Battery ${bat_number} Cell 08 Temperature State"
+        device_id: pylontech_battery_${bat_number}
+      - name: "GETPWR Battery ${bat_number} Cell 09 Temperature State"
+        device_id: pylontech_battery_${bat_number}
+      - name: "GETPWR Battery ${bat_number} Cell 10 Temperature State"
+        device_id: pylontech_battery_${bat_number}
+      - name: "GETPWR Battery ${bat_number} Cell 11 Temperature State"
+        device_id: pylontech_battery_${bat_number}
+      - name: "GETPWR Battery ${bat_number} Cell 12 Temperature State"
+        device_id: pylontech_battery_${bat_number}
+      - name: "GETPWR Battery ${bat_number} Cell 13 Temperature State"
+        device_id: pylontech_battery_${bat_number}
+      - name: "GETPWR Battery ${bat_number} Cell 14 Temperature State"
+        device_id: pylontech_battery_${bat_number}
+      - name: "GETPWR Battery ${bat_number} Cell 15 Temperature State"
+        device_id: pylontech_battery_${bat_number}
+    ### Cmd `STAT`
+    # stat_response:
+    #   name: "STAT Battery ${bat_number} Response"
+    #   device_id: pylontech_system
+    ### Cmd `BAT`
+    # bat_response:
+    #   name: "BAT Battery ${bat_number} Response"
+    #   device_id: pylontech_system
+    bat_cell_balance_states:
+      - name: "BAT Battery ${bat_number} Cell 01 Balance State"
+        device_id: pylontech_battery_${bat_number}
+      - name: "BAT Battery ${bat_number} Cell 02 Balance State"
+        device_id: pylontech_battery_${bat_number}
+      - name: "BAT Battery ${bat_number} Cell 03 Balance State"
+        device_id: pylontech_battery_${bat_number}
+      - name: "BAT Battery ${bat_number} Cell 04 Balance State"
+        device_id: pylontech_battery_${bat_number}
+      - name: "BAT Battery ${bat_number} Cell 05 Balance State"
+        device_id: pylontech_battery_${bat_number}
+      - name: "BAT Battery ${bat_number} Cell 06 Balance State"
+        device_id: pylontech_battery_${bat_number}
+      - name: "BAT Battery ${bat_number} Cell 07 Balance State"
+        device_id: pylontech_battery_${bat_number}
+      - name: "BAT Battery ${bat_number} Cell 08 Balance State"
+        device_id: pylontech_battery_${bat_number}
+      - name: "BAT Battery ${bat_number} Cell 09 Balance State"
+        device_id: pylontech_battery_${bat_number}
+      - name: "BAT Battery ${bat_number} Cell 10 Balance State"
+        device_id: pylontech_battery_${bat_number}
+      - name: "BAT Battery ${bat_number} Cell 11 Balance State"
+        device_id: pylontech_battery_${bat_number}
+      - name: "BAT Battery ${bat_number} Cell 12 Balance State"
+        device_id: pylontech_battery_${bat_number}
+      - name: "BAT Battery ${bat_number} Cell 13 Balance State"
+        device_id: pylontech_battery_${bat_number}
+      - name: "BAT Battery ${bat_number} Cell 14 Balance State"
+        device_id: pylontech_battery_${bat_number}
+      - name: "BAT Battery ${bat_number} Cell 15 Balance State"
+        device_id: pylontech_battery_${bat_number}
+    ### Cmd `SOH`
+    # soh_response:
+    #   name: "SOH Battery ${bat_number} Response"
+    #   device_id: pylontech_system
+    soh_cell_statuses:
+      - name: "SOH Battery ${bat_number} Cell 01 Status"
+        device_id: pylontech_battery_${bat_number}
+      - name: "SOH Battery ${bat_number} Cell 02 Status"
+        device_id: pylontech_battery_${bat_number}
+      - name: "SOH Battery ${bat_number} Cell 03 Status"
+        device_id: pylontech_battery_${bat_number}
+      - name: "SOH Battery ${bat_number} Cell 04 Status"
+        device_id: pylontech_battery_${bat_number}
+      - name: "SOH Battery ${bat_number} Cell 05 Status"
+        device_id: pylontech_battery_${bat_number}
+      - name: "SOH Battery ${bat_number} Cell 06 Status"
+        device_id: pylontech_battery_${bat_number}
+      - name: "SOH Battery ${bat_number} Cell 07 Status"
+        device_id: pylontech_battery_${bat_number}
+      - name: "SOH Battery ${bat_number} Cell 08 Status"
+        device_id: pylontech_battery_${bat_number}
+      - name: "SOH Battery ${bat_number} Cell 09 Status"
+        device_id: pylontech_battery_${bat_number}
+      - name: "SOH Battery ${bat_number} Cell 10 Status"
+        device_id: pylontech_battery_${bat_number}
+      - name: "SOH Battery ${bat_number} Cell 11 Status"
+        device_id: pylontech_battery_${bat_number}
+      - name: "SOH Battery ${bat_number} Cell 12 Status"
+        device_id: pylontech_battery_${bat_number}
+      - name: "SOH Battery ${bat_number} Cell 13 Status"
+        device_id: pylontech_battery_${bat_number}
+      - name: "SOH Battery ${bat_number} Cell 14 Status"
+        device_id: pylontech_battery_${bat_number}
+      - name: "SOH Battery ${bat_number} Cell 15 Status"
+        device_id: pylontech_battery_${bat_number}

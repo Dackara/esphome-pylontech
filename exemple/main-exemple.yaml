@@ -30,6 +30,11 @@ id: pylon
   # login_debug_recovery_interval: 24h      # minimum delay between automatic attempts # `24h` by default
   # enable_us2000b_initialization: false    # US2000B ONLY! Requires runtime UART baud switching; incompatible with "Weikai" UART. `false` by default
   memory_mode: auto                         # `auto` prefers PSRAM when `psram:` exists; # `psram` requires it # `internal` by default
+
+# # Enable PSRAM
+# psram:
+#   mode: octal
+#   speed: 80MHz
   
 packages:
   pylontech_system: !include

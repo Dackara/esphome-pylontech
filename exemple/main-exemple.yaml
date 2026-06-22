@@ -12,7 +12,8 @@ uart:
   stop_bits: '1'
   rx_buffer_size: 4096
   
-id: pylon
+pylontech:
+  id: pylon
   uart_id: pylontech_uart
   # role: master                            # `master` or `slave` >> Master by default
   update_interval: 5s                       # `5s` by default # interval for the fast loop

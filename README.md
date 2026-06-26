@@ -1,6 +1,6 @@
 # ESPHome Pylontech Component
 
-[🇫🇷 Documentation Française](README.fr.md)
+[🇫🇷 Documentation Française](README-FR.md)
 
 ---
 

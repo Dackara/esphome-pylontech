@@ -5,7 +5,7 @@ external_components:
       refresh: 0s
 
 uart:
-  id: pylon_uart
+  id: pylontech_uart
   tx_pin: GPIO17
   rx_pin: GPIO18
   baud_rate: 115200

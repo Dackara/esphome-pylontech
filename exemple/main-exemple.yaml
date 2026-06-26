@@ -41,19 +41,19 @@ packages:
   pylontech_system: !include
     file: package/device_pylontech_system.yaml
       
-  pylontech_batteriy_1: !include
+  pylontech_battery_1: !include
     file: package/device_pylontech_battery.yaml
     vars:
       bat_number: '1'                
-  # pylontech_batteriy_2: !include
+  # pylontech_battery_2: !include
   #   file: package/device_pylontech_battery.yaml
   #   vars:
   #     bat_number: '2'       
-  # pylontech_batteriy_3: !include
+  # pylontech_battery_3: !include
   #   file: package/device_pylontech_battery.yaml
   #   vars:
   #     bat_number: '3'       
-  # pylontech_batteriy_4: !include
+  # pylontech_battery_4: !include
   #   file: package/device_pylontech_battery.yaml
   #   vars:
   #     bat_number: '4'
